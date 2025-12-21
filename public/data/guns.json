@@ -1,0 +1,332 @@
+[
+  {
+    "slot": "Main",
+    "technicalName": "Shelling S49",
+    "name": "Pistol",
+    "damage": 4.64,
+    "staggerMultiplier": 1.5,
+    "precisionMultiplier": 0.8667,
+    "falloffStart": 9,
+    "falloffEnd": 45
+  },
+  {
+    "slot": "Main",
+    "technicalName": "Shelling Nano",
+    "name": "Burst Pistol",
+    "damage": 3.2,
+    "staggerMultiplier": 1.0,
+    "precisionMultiplier": 0.8667,
+    "falloffStart": 10,
+    "falloffEnd": 47
+  },
+  {
+    "slot": "Main",
+    "technicalName": "Bataldo 3RB",
+    "name": "HEL Revolver",
+    "damage": 8.01,
+    "staggerMultiplier": 1.0,
+    "precisionMultiplier": 0.7413,
+    "falloffStart": 10,
+    "falloffEnd": 80
+  },
+  {
+    "slot": "Main",
+    "technicalName": "Raptus Treffen 2",
+    "name": "Machine Pistol",
+    "damage": 1.9,
+    "staggerMultiplier": 1.0,
+    "precisionMultiplier": 0.7413,
+    "falloffStart": 7,
+    "falloffEnd": 35
+  },
+  {
+    "slot": "Main",
+    "technicalName": "Raptus Steigro",
+    "name": "HEL Autopistol",
+    "damage": 1.5,
+    "staggerMultiplier": 5.0,
+    "precisionMultiplier": 0.7413,
+    "falloffStart": 5,
+    "falloffEnd": 55
+  },
+  {
+    "slot": "Main",
+    "technicalName": "Accrat Golok DA",
+    "name": "Bullpup Rifle",
+    "damage": 2.1,
+    "staggerMultiplier": 1.0,
+    "precisionMultiplier": 1.0,
+    "falloffStart": 10,
+    "falloffEnd": 65
+  },
+  {
+    "slot": "Main",
+    "technicalName": "Van Auken LTC5",
+    "name": "SMG",
+    "damage": 1.98,
+    "staggerMultiplier": 1.0,
+    "precisionMultiplier": 0.91,
+    "falloffStart": 6,
+    "falloffEnd": 55
+  },
+  {
+    "slot": "Main",
+    "technicalName": "Accrat STB",
+    "name": "PDW",
+    "damage": 2.15,
+    "staggerMultiplier": 1.0,
+    "precisionMultiplier": 0.7413,
+    "falloffStart": 5,
+    "falloffEnd": 47
+  },
+  {
+    "slot": "Main",
+    "technicalName": "Accrat ND6",
+    "name": "Heavy SMG",
+    "damage": 2.45,
+    "staggerMultiplier": 1.0,
+    "precisionMultiplier": 0.8,
+    "falloffStart": 7,
+    "falloffEnd": 60
+  },
+  {
+    "slot": "Main",
+    "technicalName": "Van Auken CAB F4",
+    "name": "Carbine",
+    "damage": 2.38,
+    "staggerMultiplier": 1.0,
+    "precisionMultiplier": 0.7413333,
+    "falloffStart": 10,
+    "falloffEnd": 65
+  },
+  {
+    "slot": "Main",
+    "technicalName": "TR22 Hanaway",
+    "name": "DMR",
+    "damage": 7.51,
+    "staggerMultiplier": 1.0,
+    "precisionMultiplier": 0.87,
+    "falloffStart": 50,
+    "falloffEnd": 100
+  },
+  {
+    "slot": "Main",
+    "technicalName": "Hanaway PSB",
+    "name": "Double Tap Rifle",
+    "damage": 5.51,
+    "staggerMultiplier": 1.0,
+    "precisionMultiplier": 0.9,
+    "falloffStart": 40,
+    "falloffEnd": 90
+  },
+  {
+    "slot": "Main",
+    "technicalName": "Malatack LX",
+    "name": "Assault Rifle",
+    "damage": 2.1875,
+    "staggerMultiplier": 1.0,
+    "precisionMultiplier": 0.8,
+    "falloffStart": 10,
+    "falloffEnd": 70
+  },
+  {
+    "slot": "Main",
+    "technicalName": "Malatack CH 4",
+    "name": "Burst Rifle",
+    "damage": 2.71,
+    "staggerMultiplier": 1.0,
+    "precisionMultiplier": 0.8667,
+    "falloffStart": 20,
+    "falloffEnd": 85
+  },
+  {
+    "slot": "Main",
+    "technicalName": "Drekker Pres MOD 556",
+    "name": "Rifle",
+    "damage": 5.08,
+    "staggerMultiplier": 1.75,
+    "precisionMultiplier": 0.8667,
+    "falloffStart": 22,
+    "falloffEnd": 80
+  },
+  {
+    "slot": "Main",
+    "technicalName": "Buckland SBS III",
+    "name": "Sawed-off Shotgun",
+    "damage": 30.4,
+    "staggerMultiplier": 2.0,
+    "precisionMultiplier": 0.7413,
+    "falloffStart": 6,
+    "falloffEnd": 40
+  },
+  {
+    "slot": "Main",
+    "technicalName": "Bataldo J 300",
+    "name": "HEL Shotgun",
+    "damage": 13.36,
+    "staggerMultiplier": 2.0,
+    "precisionMultiplier": 0.7413,
+    "falloffStart": 4,
+    "falloffEnd": 40
+  },
+  {
+    "slot": "Main",
+    "technicalName": "Bataldo Custom K330",
+    "name": "Slug Shotgun",
+    "damage": 21.0,
+    "staggerMultiplier": 2.0,
+    "precisionMultiplier": 0.7413,
+    "falloffStart": 6,
+    "falloffEnd": 40
+  },
+  {
+    "slot": "Special",
+    "technicalName": "Malatack HXC",
+    "name": "Heavy Assault Rifle",
+    "damage": 5.01,
+    "staggerMultiplier": 1.0,
+    "precisionMultiplier": 0.8,
+    "falloffStart": 12,
+    "falloffEnd": 80
+  },
+  {
+    "slot": "Special",
+    "technicalName": "Drekker CLR",
+    "name": "Short Rifle",
+    "damage": 4.81,
+    "staggerMultiplier": 0.5,
+    "precisionMultiplier": 0.7413,
+    "falloffStart": 8,
+    "falloffEnd": 58
+  },
+  {
+    "slot": "Special",
+    "technicalName": "Buckland S870",
+    "name": "Shotgun",
+    "damage": 30.1,
+    "staggerMultiplier": 1.0,
+    "precisionMultiplier": 1.0,
+    "falloffStart": 4,
+    "falloffEnd": 40
+  },
+  {
+    "slot": "Special",
+    "technicalName": "Buckland AF6",
+    "name": "Combat Shotgun",
+    "damage": 15.06,
+    "staggerMultiplier": 2.0,
+    "precisionMultiplier": 0.875,
+    "falloffStart": 5,
+    "falloffEnd": 45
+  },
+  {
+    "slot": "Special",
+    "technicalName": "Drekker INEX Drei",
+    "name": "Scattergun",
+    "damage": 153.6,
+    "staggerMultiplier": 2.0,
+    "precisionMultiplier": 0.7333,
+    "falloffStart": 4,
+    "falloffEnd": 30
+  },
+  {
+    "slot": "Special",
+    "technicalName": "Buckland XDIST2",
+    "name": "Choke Mod Shotgun",
+    "damage": 30.08,
+    "staggerMultiplier": 1.35,
+    "precisionMultiplier": 1.0,
+    "falloffStart": 15,
+    "falloffEnd": 80
+  },
+  {
+    "slot": "Special",
+    "technicalName": "Mastaba R66",
+    "name": "Revolver",
+    "damage": 14.21,
+    "staggerMultiplier": 1.0,
+    "precisionMultiplier": 0.7413,
+    "falloffStart": 12,
+    "falloffEnd": 80
+  },
+  {
+    "slot": "Special",
+    "technicalName": "Techman Arbalist V",
+    "name": "Machine Gun Arbalist",
+    "damage": 5.35,
+    "staggerMultiplier": 1.0,
+    "precisionMultiplier": 0.7413,
+    "falloffStart": 15,
+    "falloffEnd": 80
+  },
+  {
+    "slot": "Special",
+    "technicalName": "Techman Veruta XII",
+    "name": "Machine Gun Veruta",
+    "damage": 3.51,
+    "staggerMultiplier": 1.45,
+    "precisionMultiplier": 0.7413,
+    "falloffStart": 15,
+    "falloffEnd": 80
+  },
+  {
+    "slot": "Special",
+    "technicalName": "Techman Klust 6",
+    "name": "Burst Cannon",
+    "damage": 22.0,
+    "staggerMultiplier": 1.0,
+    "precisionMultiplier": 0.73,
+    "falloffStart": 15,
+    "falloffEnd": 80
+  },
+  {
+    "slot": "Special",
+    "technicalName": "Omneco EXP1",
+    "name": "HEL Gun",
+    "damage": 16.25,
+    "staggerMultiplier": 1.0,
+    "precisionMultiplier": 0.8,
+    "falloffStart": 15,
+    "falloffEnd": 90
+  },
+  {
+    "slot": "Special",
+    "technicalName": "Shelling Arid 5",
+    "name": "High Caliber Pistol",
+    "damage": 30.1,
+    "staggerMultiplier": 1.0,
+    "precisionMultiplier": 0.7413,
+    "falloffStart": 8,
+    "falloffEnd": 65
+  },
+  {
+    "slot": "Special",
+    "technicalName": "Drekker Del P1",
+    "name": "Precision Rifle",
+    "damage": 13.0,
+    "staggerMultiplier": 1.0,
+    "precisionMultiplier": 1.3,
+    "falloffStart": 30,
+    "falloffEnd": 70
+  },
+  {
+    "slot": "Special",
+    "technicalName": "Koning PR 11",
+    "name": "Sniper",
+    "damage": 40.01,
+    "staggerMultiplier": 1.0,
+    "precisionMultiplier": 2.0025,
+    "falloffStart": 60,
+    "falloffEnd": 100
+  },
+  {
+    "slot": "Special",
+    "technicalName": "Omneco LRG",
+    "name": "HEL Rifle",
+    "damage": 30.01,
+    "staggerMultiplier": 1.0,
+    "precisionMultiplier": 0.73,
+    "falloffStart": 40,
+    "falloffEnd": 80
+  }
+]
