@@ -164,7 +164,7 @@
     "meleeDamage": null,
     "tongueDamage": null,
     "projectileDamage": 4.0,
-    "hasHead": false,
+    "hasHead": true,
     "hasTumors": false
   },
   {
@@ -232,7 +232,7 @@
     "health": 6000.0,
     "staggerHp": 6000.0,
     "precisionMultiplier": 1.5,
-    "backMultiplier": 1.0,
+    "backMultiplier": null,
     "meleeDamage": null,
     "tongueDamage": null,
     "projectileDamage": 4.0,
@@ -284,7 +284,7 @@
     "meleeDamage": null,
     "tongueDamage": null,
     "projectileDamage": 4.0,
-    "hasHead": true,
+    "hasHead": false,
     "hasTumors": true
   },
   {
@@ -316,7 +316,7 @@
     "health": 5000.0,
     "staggerHp": 5000.0,
     "precisionMultiplier": 3.0,
-    "backMultiplier": 1.0,
+    "backMultiplier": null,
     "meleeDamage": null,
     "tongueDamage": 12.0,
     "projectileDamage": 5.55,

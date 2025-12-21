@@ -11,7 +11,6 @@ export class Gun {
     }
 
     getBaseDamageForDistance(distance) {
-        console.log("getting base damage for distance " + distance);
         if (distance <= this.falloffStart) return this.damage;
         if (distance >= this.falloffEnd) return this.damage * 0.1;
         return this.damage * (1 - 0.9 * (distance - this.falloffStart) / (this.falloffEnd - this.falloffStart));
@@ -69,6 +68,7 @@ export class Melee {
     getOneshotCharge(enemyHealth, enemyPrecMul, enemyBackMul, isPrec, isBack, isSleeping, boosterDamageModifier) {
         let lightDamage = this.getDamage(0, enemyPrecMul, enemyBackMul, isPrec, isBack, isSleeping, boosterDamageModifier);
         let chargedDamage = this.getDamage(1, enemyPrecMul, enemyBackMul, isPrec, isBack, isSleeping, boosterDamageModifier);
-        return ((enemyHealth - lightDamage) / (chargedDamage - lightDamage)) ** (1 / 3);
+        let charge = ((enemyHealth - lightDamage) / (chargedDamage - lightDamage)) ** (1 / 3);
+        return isNaN(charge) ? 0 : charge;
     }
 }
