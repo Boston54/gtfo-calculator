@@ -20,7 +20,9 @@ export class Gun {
         let prec = !isPrec || enemyPrecMul == null ? 1 : this.precMul * enemyPrecMul;
         let back = !isBack || enemyBackMul == null ? 1 : enemyBackMul;
         let stag = !isStaggerDamage ? 1 : this.staggerMul;
-        return (this.getBaseDamageForDistance(distance) * prec * back * stag * boosterDamageModifier).toFixed(2);
+        const damage = (this.getBaseDamageForDistance(distance) * prec * back * stag * boosterDamageModifier).toFixed(2);
+        if (damage < this.damage) return this.damage;
+        return damage;
     }
 
     getOneshotDistance(enemyHealth, enemyPrecMul, enemyBackMul, isPrec, isBack, boosterDamageModifier) {

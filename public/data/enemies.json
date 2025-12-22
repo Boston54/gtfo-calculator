@@ -10,7 +10,8 @@
     "projectileDamage": null,
     "hasHead": true,
     "hasTumors": false,
-    "armorMultiplier": null
+    "armorMultiplier": null,
+    "wholeBodyArmor": null
   },
   {
     "name": "Shooter",
@@ -23,7 +24,8 @@
     "projectileDamage": 5.0,
     "hasHead": true,
     "hasTumors": false,
-    "armorMultiplier": null
+    "armorMultiplier": null,
+    "wholeBodyArmor": null
   },
   {
     "name": "Scout",
@@ -36,7 +38,8 @@
     "projectileDamage": 4.0,
     "hasHead": true,
     "hasTumors": false,
-    "armorMultiplier": null
+    "armorMultiplier": null,
+    "wholeBodyArmor": null
   },
   {
     "name": "Giant",
@@ -49,7 +52,8 @@
     "projectileDamage": null,
     "hasHead": true,
     "hasTumors": false,
-    "armorMultiplier": null
+    "armorMultiplier": null,
+    "wholeBodyArmor": null
   },
   {
     "name": "Big Shooter",
@@ -62,7 +66,8 @@
     "projectileDamage": 6.0,
     "hasHead": true,
     "hasTumors": false,
-    "armorMultiplier": null
+    "armorMultiplier": null,
+    "wholeBodyArmor": null
   },
   {
     "name": "Hybrid",
@@ -75,7 +80,8 @@
     "projectileDamage": 3.57,
     "hasHead": true,
     "hasTumors": false,
-    "armorMultiplier": null
+    "armorMultiplier": null,
+    "wholeBodyArmor": null
   },
   {
     "name": "Charger",
@@ -88,7 +94,8 @@
     "projectileDamage": null,
     "hasHead": false,
     "hasTumors": false,
-    "armorMultiplier": null
+    "armorMultiplier": null,
+    "wholeBodyArmor": null
   },
   {
     "name": "Big Charger",
@@ -101,7 +108,8 @@
     "projectileDamage": null,
     "hasHead": false,
     "hasTumors": false,
-    "armorMultiplier": null
+    "armorMultiplier": null,
+    "wholeBodyArmor": null
   },
   {
     "name": "Charger Scout",
@@ -114,7 +122,8 @@
     "projectileDamage": null,
     "hasHead": false,
     "hasTumors": false,
-    "armorMultiplier": null
+    "armorMultiplier": null,
+    "wholeBodyArmor": null
   },
   {
     "name": "Shadow",
@@ -127,7 +136,8 @@
     "projectileDamage": null,
     "hasHead": true,
     "hasTumors": false,
-    "armorMultiplier": null
+    "armorMultiplier": null,
+    "wholeBodyArmor": null
   },
   {
     "name": "Big Shadow",
@@ -140,7 +150,8 @@
     "projectileDamage": null,
     "hasHead": true,
     "hasTumors": false,
-    "armorMultiplier": null
+    "armorMultiplier": null,
+    "wholeBodyArmor": null
   },
   {
     "name": "Shadow Scout",
@@ -153,7 +164,8 @@
     "projectileDamage": 4.0,
     "hasHead": true,
     "hasTumors": false,
-    "armorMultiplier": null
+    "armorMultiplier": null,
+    "wholeBodyArmor": null
   },
   {
     "name": "Baby Striker",
@@ -166,7 +178,8 @@
     "projectileDamage": null,
     "hasHead": true,
     "hasTumors": false,
-    "armorMultiplier": null
+    "armorMultiplier": null,
+    "wholeBodyArmor": null
   },
   {
     "name": "Flyer",
@@ -178,7 +191,9 @@
     "tongueDamage": null,
     "projectileDamage": 4.0,
     "hasHead": true,
-    "hasTumors": false
+    "hasTumors": false,
+    "armorMultiplier": null,
+    "wholeBodyArmor": null
   },
   {
     "name": "Big Flyer",
@@ -191,7 +206,8 @@
     "projectileDamage": 4.0,
     "hasHead": true,
     "hasTumors": false,
-    "armorMultiplier": 0.0001
+    "armorMultiplier": 0.0001,
+    "wholeBodyArmor": true
   },
   {
     "name": "Snatcher",
@@ -204,7 +220,8 @@
     "projectileDamage": null,
     "hasHead": false,
     "hasTumors": false,
-    "armorMultiplier": 0.2
+    "armorMultiplier": 0.2,
+    "wholeBodyArmor": false
   },
   {
     "name": "Mother",
@@ -217,7 +234,8 @@
     "projectileDamage": null,
     "hasHead": false,
     "hasTumors": true,
-    "armorMultiplier": 0.001
+    "armorMultiplier": 0.001,
+    "wholeBodyArmor": true
   },
   {
     "name": "Big Mother",
@@ -230,7 +248,8 @@
     "projectileDamage": null,
     "hasHead": false,
     "hasTumors": true,
-    "armorMultiplier": 0.001
+    "armorMultiplier": 0.001,
+    "wholeBodyArmor": true
   },
   {
     "name": "Tank",
@@ -243,7 +262,8 @@
     "projectileDamage": null,
     "hasHead": false,
     "hasTumors": true,
-    "armorMultiplier": 0.01
+    "armorMultiplier": 0.01,
+    "wholeBodyArmor": true
   },
   {
     "name": "Kraken (R6D1)",
@@ -256,7 +276,8 @@
     "projectileDamage": 4.0,
     "hasHead": false,
     "hasTumors": true,
-    "armorMultiplier": 0.001
+    "armorMultiplier": 0.001,
+    "wholeBodyArmor": true
   },
   {
     "name": "Kraken (R8B2)",
@@ -269,7 +290,8 @@
     "projectileDamage": 4.0,
     "hasHead": false,
     "hasTumors": true,
-    "armorMultiplier": 0.001
+    "armorMultiplier": 0.001,
+    "wholeBodyArmor": true
   },
   {
     "name": "Kraken (R8E2)",
@@ -282,7 +304,8 @@
     "projectileDamage": 4.0,
     "hasHead": false,
     "hasTumors": true,
-    "armorMultiplier": 0.001
+    "armorMultiplier": 0.001,
+    "wholeBodyArmor": true
   },
   {
     "name": "Immortal",
@@ -295,7 +318,8 @@
     "projectileDamage": null,
     "hasHead": false,
     "hasTumors": false,
-    "armorMultiplier": 0.01
+    "armorMultiplier": 0.01,
+    "wholeBodyArmor": true
   },
   {
     "name": "Nightmare Striker",
@@ -308,7 +332,8 @@
     "projectileDamage": null,
     "hasHead": false,
     "hasTumors": true,
-    "armorMultiplier": null
+    "armorMultiplier": null,
+    "wholeBodyArmor": null
   },
   {
     "name": "Nightmare Shooter",
@@ -321,7 +346,8 @@
     "projectileDamage": 5.55,
     "hasHead": true,
     "hasTumors": true,
-    "armorMultiplier": null
+    "armorMultiplier": null,
+    "wholeBodyArmor": null
   },
   {
     "name": "Nightmare Scout",
@@ -334,7 +360,8 @@
     "projectileDamage": 4.0,
     "hasHead": false,
     "hasTumors": true,
-    "armorMultiplier": 0.3
+    "armorMultiplier": 0.3,
+    "wholeBodyArmor": true
   },
   {
     "name": "Nightmare Giant",
@@ -347,7 +374,8 @@
     "projectileDamage": 5.55,
     "hasHead": false,
     "hasTumors": false,
-    "armorMultiplier": null
+    "armorMultiplier": null,
+    "wholeBodyArmor": null
   },
   {
     "name": "Nightmare Baby Striker",
@@ -360,7 +388,8 @@
     "projectileDamage": null,
     "hasHead": false,
     "hasTumors": false,
-    "armorMultiplier": null
+    "armorMultiplier": null,
+    "wholeBodyArmor": null
   },
   {
     "name": "Mega Mother",
@@ -373,6 +402,7 @@
     "projectileDamage": 5.55,
     "hasHead": false,
     "hasTumors": true,
-    "armorMultiplier": 0.001
+    "armorMultiplier": 0.001,
+    "wholeBodyArmor": true
   }
 ]

@@ -240,24 +240,39 @@ function updateResults() {
 
     if (activeWeapon instanceof Gun) {
         const distance = Number(distanceSlider.value);
-        const baseDamageDist = activeWeapon.getDamage(distance, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, false, false, boosterMultiplier);
-        const backDamageDist = activeWeapon.getDamage(distance, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, false, true, boosterMultiplier);
+        let baseDamageDist = activeWeapon.getDamage(distance, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, false, false, boosterMultiplier);
+        let backDamageDist = activeWeapon.getDamage(distance, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, false, true, boosterMultiplier);
         const headDamageDist = activeWeapon.getDamage(distance, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, true, false, boosterMultiplier);
         const occiputDamageDist = activeWeapon.getDamage(distance, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, true, true, boosterMultiplier);
-        const baseDamageSR = activeWeapon.getDamage(0, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, false, false, boosterMultiplier);
-        const backDamageSR = activeWeapon.getDamage(0, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, false, true, boosterMultiplier);
+        let baseDamageSR = activeWeapon.getDamage(0, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, false, false, boosterMultiplier);
+        let backDamageSR = activeWeapon.getDamage(0, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, false, true, boosterMultiplier);
         const headDamageSR = activeWeapon.getDamage(0, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, true, false, boosterMultiplier);
         const occiputDamageSR = activeWeapon.getDamage(0, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, true, true, boosterMultiplier);
-        const baseDamageDistStag = activeWeapon.getDamage(distance, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, false, false, boosterMultiplier, true);
-        const backDamageDistStag = activeWeapon.getDamage(distance, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, false, true, boosterMultiplier, true);
+        let baseDamageDistStag = activeWeapon.getDamage(distance, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, false, false, boosterMultiplier, true);
+        let backDamageDistStag = activeWeapon.getDamage(distance, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, false, true, boosterMultiplier, true);
         const headDamageDistStag = activeWeapon.getDamage(distance, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, true, false, boosterMultiplier, true);
         const occiputDamageDistStag = activeWeapon.getDamage(distance, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, true, true, boosterMultiplier, true);
 
+        if (activeEnemy.armorMultiplier !== null && activeEnemy.wholeBodyArmor === true) {
+            baseDamageDist = (baseDamageDist * activeEnemy.armorMultiplier).toFixed(2);
+            backDamageDist = (baseDamageDist * activeEnemy.armorMultiplier).toFixed(2);
+            baseDamageSR = (baseDamageDist * activeEnemy.armorMultiplier).toFixed(2);
+            backDamageSR = (baseDamageDist * activeEnemy.armorMultiplier).toFixed(2);
+            baseDamageDistStag = (baseDamageDist * activeEnemy.armorMultiplier).toFixed(2);
+            backDamageDistStag = (baseDamageDist * activeEnemy.armorMultiplier).toFixed(2);
+        }
+
         createResultsRow("Base Damage", baseDamageDist, Math.ceil(activeEnemy.health / baseDamageDist) + " hit(s) to kill");
+        if (activeEnemy.armorMultiplier !== null && activeEnemy.wholeBodyArmor === false) {
+            createResultsRow("Base Armor Damage", (baseDamageDist * activeEnemy.armorMultiplier).toFixed(2), Math.ceil(activeEnemy.health / (baseDamageDist * activeEnemy.armorMultiplier)) + " hit(s) to kill");
+        }
         if (activeEnemy.backMultiplier !== 1 && activeEnemy.backMultiplier !== null) {
             createResultsRow("Back Damage", backDamageDist, Math.ceil(activeEnemy.health / backDamageDist) + " hit(s) to kill");
+            if (activeEnemy.armorMultiplier !== null && activeEnemy.wholeBodyArmor === false) {
+                createResultsRow("Back Armor Damage", (backDamageDist * activeEnemy.armorMultiplier).toFixed(2), Math.ceil(activeEnemy.health / (backDamageDist * activeEnemy.armorMultiplier)) + " hit(s) to kill");
+            }
         }
-        if (activeEnemy.precisionMultiplier !== 1 && activeEnemy.precisionMultiplier !== null) {
+        if (activeEnemy.precisionMultiplier !== null) {
             createResultsRow((activeEnemy.hasHead ? "Head" : "Tumor") + " Damage", headDamageDist, Math.ceil(activeEnemy.health / headDamageDist) + " hit(s) to kill");
         }
         if ((activeEnemy.hasHead || activeEnemy.hasTumors) && activeEnemy.backMultiplier !== null) {
@@ -281,10 +296,16 @@ function updateResults() {
         }
         if (activeEnemy.staggerHp !== null) {
             createResultsRow("Base Stagger Damage", baseDamageDistStag, Math.ceil(activeEnemy.staggerHp / baseDamageDistStag) + " hit(s) to stagger", STAGGER_COLOR);
+            if (activeEnemy.armorMultiplier !== null && activeEnemy.wholeBodyArmor === false) {
+                createResultsRow("Base Armor Stagger Damage", (baseDamageDistStag * activeEnemy.armorMultiplier).toFixed(2), Math.ceil(activeEnemy.staggerHp / (baseDamageDistStag * activeEnemy.armorMultiplier)) + " hit(s) to stagger", STAGGER_COLOR);
+            }
             if (activeEnemy.backMultiplier !== 1 && activeEnemy.backMultiplier !== null) {
                 createResultsRow("Back Stagger Damage", backDamageDistStag, Math.ceil(activeEnemy.staggerHp / backDamageDistStag) + " hit(s) to stagger", STAGGER_COLOR);
+                if (activeEnemy.armorMultiplier !== null && activeEnemy.wholeBodyArmor === false) {
+                    createResultsRow("Back Armor Stagger Damage", (backDamageDistStag * activeEnemy.armorMultiplier).toFixed(2), Math.ceil(activeEnemy.staggerHp / (backDamageDistStag * activeEnemy.armorMultiplier)) + " hit(s) to stagger", STAGGER_COLOR);
+                }
             }
-            if (activeEnemy.precisionMultiplier !== 1 && activeEnemy.precisionMultiplier !== null) {
+            if (activeEnemy.precisionMultiplier !== null) {
                 createResultsRow((activeEnemy.hasHead ? "Head" : "Tumor") + " Stagger Damage", headDamageDistStag, Math.ceil(activeEnemy.staggerHp / headDamageDistStag) + " hit(s) to stagger", STAGGER_COLOR);
             }
             if ((activeEnemy.hasHead || activeEnemy.hasTumors) && activeEnemy.backMultiplier !== null) {
@@ -293,40 +314,65 @@ function updateResults() {
         }
     } else {
         const charge = Number(chargeSlider.value);
-        const baseDamage = activeWeapon.getDamage(charge, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, false, false, false, boosterMultiplier);
-        const backDamage = activeWeapon.getDamage(charge, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, false, true, false, boosterMultiplier);
+        let baseDamage = activeWeapon.getDamage(charge, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, false, false, false, boosterMultiplier);
+        let backDamage = activeWeapon.getDamage(charge, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, false, true, false, boosterMultiplier);
         const headDamage = activeWeapon.getDamage(charge, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, true, false, false, boosterMultiplier);
         const occiputDamage = activeWeapon.getDamage(charge, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, true, true, false, boosterMultiplier);
-        const baseDamageSleep = activeWeapon.getDamage(charge, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, false, false, true, boosterMultiplier);
+        let baseDamageSleep = activeWeapon.getDamage(charge, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, false, false, true, boosterMultiplier);
+        let backDamageSleep = activeWeapon.getDamage(charge, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, false, true, true, boosterMultiplier);
         const headDamageSleep = activeWeapon.getDamage(charge, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, true, false, true, boosterMultiplier);
-        const backDamageSleep = activeWeapon.getDamage(charge, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, false, true, true, boosterMultiplier);
         const occiputDamageSleep = activeWeapon.getDamage(charge, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, true, true, true, boosterMultiplier);
-        const baseDamageL = activeWeapon.getDamage(0, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, false, false, false, boosterMultiplier);
-        const backDamageL = activeWeapon.getDamage(0, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, false, true, false, boosterMultiplier);
+        let baseDamageL = activeWeapon.getDamage(0, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, false, false, false, boosterMultiplier);
+        let backDamageL = activeWeapon.getDamage(0, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, false, true, false, boosterMultiplier);
         const headDamageL = activeWeapon.getDamage(0, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, true, false, false, boosterMultiplier);
         const occiputDamageL = activeWeapon.getDamage(0, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, true, true, false, boosterMultiplier);
-        const baseDamageC = activeWeapon.getDamage(1, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, false, false, false, boosterMultiplier);
-        const backDamageC = activeWeapon.getDamage(1, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, false, true, false, boosterMultiplier);
+        let baseDamageC = activeWeapon.getDamage(1, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, false, false, false, boosterMultiplier);
+        let backDamageC = activeWeapon.getDamage(1, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, false, true, false, boosterMultiplier);
         const headDamageC = activeWeapon.getDamage(1, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, true, false, false, boosterMultiplier);
         const occiputDamageC = activeWeapon.getDamage(1, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, true, true, false, boosterMultiplier);
-        const baseDamageStag = activeWeapon.getDamage(charge, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, false, false, false, boosterMultiplier, true);
-        const backDamageStag = activeWeapon.getDamage(charge, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, false, true, false, boosterMultiplier, true);
+        let baseDamageStag = activeWeapon.getDamage(charge, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, false, false, false, boosterMultiplier, true);
+        let backDamageStag = activeWeapon.getDamage(charge, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, false, true, false, boosterMultiplier, true);
         const headDamageStag = activeWeapon.getDamage(charge, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, true, false, false, boosterMultiplier, true);
         const occiputDamageStag = activeWeapon.getDamage(charge, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, true, true, false, boosterMultiplier, true);
 
+        if (activeEnemy.armorMultiplier !== null && activeEnemy.wholeBodyArmor === true) {
+            baseDamage = (baseDamage * activeEnemy.armorMultiplier).toFixed(2);
+            backDamage = (baseDamage * activeEnemy.armorMultiplier).toFixed(2);
+            baseDamageSleep = (baseDamage * activeEnemy.armorMultiplier).toFixed(2);
+            backDamageSleep = (baseDamage * activeEnemy.armorMultiplier).toFixed(2);
+            baseDamageL = (baseDamage * activeEnemy.armorMultiplier).toFixed(2);
+            backDamageL = (baseDamage * activeEnemy.armorMultiplier).toFixed(2);
+            baseDamageC = (baseDamage * activeEnemy.armorMultiplier).toFixed(2);
+            backDamageC = (baseDamage * activeEnemy.armorMultiplier).toFixed(2);
+            baseDamageStag = (baseDamage * activeEnemy.armorMultiplier).toFixed(2);
+            backDamageStag = (baseDamage * activeEnemy.armorMultiplier).toFixed(2);
+        }
+
         if (activeWeapon.cSleepMul !== 1) {
             createResultsRow("Base Damage", baseDamage + " (" + baseDamageSleep + " sleeping)", Math.ceil(activeEnemy.health / baseDamage) + " hit(s) to kill");
+            if (activeEnemy.armorMultiplier !== null && activeEnemy.wholeBodyArmor === false) {
+                createResultsRow("Base Armor Damage", (baseDamage * activeEnemy.armorMultiplier).toFixed(2) + " (" + (baseDamageSleep * activeEnemy.armorMultiplier).toFixed(2) + " sleeping)", Math.ceil(activeEnemy.health / (baseDamage * activeEnemy.armorMultiplier)) + " hit(s) to kill");
+            }
         } else {
             createResultsRow("Base Damage", baseDamage, Math.ceil(activeEnemy.health / baseDamage) + " hit(s) to kill");
+            if (activeEnemy.armorMultiplier !== null && activeEnemy.wholeBodyArmor === false) {
+                createResultsRow("Base Damage", (baseDamage * activeEnemy.armorMultiplier).toFixed(2), Math.ceil(activeEnemy.health / (baseDamage * activeEnemy.armorMultiplier)) + " hit(s) to kill");
+            }
         }
         if (activeEnemy.backMultiplier !== 1 && activeEnemy.backMultiplier !== null) {
             if (activeWeapon.cSleepMul !== 1) {
                 createResultsRow("Back Damage", backDamage + " (" + backDamageSleep + " sleeping)", Math.ceil(activeEnemy.health / backDamage) + " hit(s) to kill");
+                if (activeEnemy.armorMultiplier !== null && activeEnemy.wholeBodyArmor === false) {
+                    createResultsRow("Back Armor Damage", (backDamage * activeEnemy.armorMultiplier).toFixed(2) + " (" + (backDamageSleep * activeEnemy.armorMultiplier).toFixed(2) + " sleeping)", Math.ceil(activeEnemy.health / (backDamage * activeEnemy.armorMultiplier)) + " hit(s) to kill");
+                }
             } else {
                 createResultsRow("Back Damage", backDamage, Math.ceil(activeEnemy.health / backDamage) + " hit(s) to kill");
+                if (activeEnemy.armorMultiplier !== null && activeEnemy.wholeBodyArmor === false) {
+                    createResultsRow("Back Armor Damage", (backDamage * activeEnemy.armorMultiplier).toFixed(2), Math.ceil(activeEnemy.health / (backDamage * activeEnemy.armorMultiplier)) + " hit(s) to kill");
+                }
             }
         }
-        if (activeEnemy.precisionMultiplier !== 1 && activeEnemy.precisionMultiplier !== null) {
+        if (activeEnemy.precisionMultiplier !== null) {
             if (activeWeapon.cSleepMul !== 1) {
                 createResultsRow((activeEnemy.hasHead ? "Head" : "Tumor") + " Damage", headDamage + " (" + headDamageSleep + " sleeping)", Math.ceil(activeEnemy.health / headDamage) + " hit(s) to kill");
             } else {
@@ -341,13 +387,19 @@ function updateResults() {
             }
         }
         createResultsRow("Base Damage Range", baseDamageL + "-" + baseDamageC, "", DAMAGE_RANGE_COLOR);
+        if (activeEnemy.armorMultiplier !== null && activeEnemy.wholeBodyArmor === false) {
+            createResultsRow("Base Armor Damage Range", (baseDamageL * activeEnemy.armorMultiplier).toFixed(2) + "-" + (baseDamageC * activeEnemy.armorMultiplier).toFixed(2), "", DAMAGE_RANGE_COLOR);
+        }
         if (activeEnemy.backMultiplier !== 1 && activeEnemy.backMultiplier !== null) {
             createResultsRow("Back Damage Range", backDamageL + "-" + backDamageC, "", DAMAGE_RANGE_COLOR);
+            if (activeEnemy.armorMultiplier !== null && activeEnemy.wholeBodyArmor === false) {
+                createResultsRow("Back Armor Damage Range", (backDamageL * activeEnemy.armorMultiplier).toFixed(2) + "-" + (backDamageC * activeEnemy.armorMultiplier).toFixed(2), "", DAMAGE_RANGE_COLOR);
+            }
         }
-        if (activeEnemy.precisionMultiplier !== 1 && activeEnemy.precisionMultiplier !== null) {
+        if (activeEnemy.precisionMultiplier !== null) {
             createResultsRow((activeEnemy.hasHead ? "Head" : "Tumor") + " Damage Range", headDamageL + "-" + headDamageC, "", DAMAGE_RANGE_COLOR);
         }
-        if (activeEnemy.hasHead && activeEnemy.backMultiplier !== null) {
+        if ((activeEnemy.hasHead || activeEnemy.hasTumors) && activeEnemy.backMultiplier !== null) {
             createResultsRow((activeEnemy.hasTumors ? "Back Tumor" : "Occiput") + " Damage Range", occiputDamageL + "-" + occiputDamageC, "", DAMAGE_RANGE_COLOR);
         }
         if (baseDamageC >= activeEnemy.health || baseDamageSleep >= activeEnemy.health) {
@@ -384,7 +436,7 @@ function updateResults() {
                 createResultsRow("Back Oneshot Charge", (backOneshotCharge * 100).toFixed(2) + "%", "", ONESHOT_COLOR);
             }
         }
-        if (activeEnemy.precisionMultiplier !== 1 && activeEnemy.precisionMultiplier !== null && (headDamageC >= activeEnemy.health || headDamageSleep >= activeEnemy.health)) {
+        if (activeEnemy.precisionMultiplier !== null && (headDamageC >= activeEnemy.health || headDamageSleep >= activeEnemy.health)) {
             const headOneshotCharge = activeWeapon.getOneshotCharge(activeEnemy.health, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, true, false, false, boosterMultiplier);
             if (activeWeapon.cSleepMul !== 1) {
                 const headOneshotChargeSleep = (activeWeapon.getOneshotCharge(activeEnemy.health, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, true, false, true, boosterMultiplier) * 100).toFixed(2);
@@ -420,10 +472,16 @@ function updateResults() {
         }
         if (activeEnemy.staggerHp !== null) {
             createResultsRow("Base Stagger Damage", baseDamageStag, Math.ceil(activeEnemy.staggerHp / baseDamageStag) + " hit(s) to stagger", STAGGER_COLOR);
+            if (activeEnemy.armorMultiplier !== null && activeEnemy.wholeBodyArmor === false) {
+                createResultsRow("Base Armor Stagger Damage", (baseDamageStag * activeEnemy.armorMultiplier).toFixed(2), Math.ceil(activeEnemy.staggerHp / (baseDamageStag * activeEnemy.armorMultiplier)) + " hit(s) to stagger", STAGGER_COLOR);
+            }
             if (activeEnemy.backMultiplier !== 1 && activeEnemy.backMultiplier !== null) {
                 createResultsRow("Back Stagger Damage", backDamageStag, Math.ceil(activeEnemy.staggerHp / backDamageStag) + " hit(s) to stagger", STAGGER_COLOR);
+                if (activeEnemy.armorMultiplier !== null && activeEnemy.wholeBodyArmor === false) {
+                    createResultsRow("Back Armor Stagger Damage", (backDamageStag * activeEnemy.armorMultiplier).toFixed(2), Math.ceil(activeEnemy.staggerHp / (backDamageStag * activeEnemy.armorMultiplier)) + " hit(s) to stagger", STAGGER_COLOR);
+                }
             }
-            if (activeEnemy.precisionMultiplier !== 1 && activeEnemy.precisionMultiplier !== null) {
+            if (activeEnemy.precisionMultiplier !== null) {
                 createResultsRow((activeEnemy.hasHead ? "Head" : "Tumor") + " Stagger Damage", headDamageStag, Math.ceil(activeEnemy.staggerHp / headDamageStag) + " hit(s) to stagger", STAGGER_COLOR);
             }
             if ((activeEnemy.hasHead || activeEnemy.hasTumors) && activeEnemy.backMultiplier !== null) {
