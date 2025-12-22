@@ -315,7 +315,7 @@ function updateResults() {
         if (activeEnemy.precisionMultiplier !== 1 && activeEnemy.precisionMultiplier !== null) {
             createResultsRow((activeEnemy.hasHead ? "Head" : "Tumor") + " Damage", headDamage, Math.ceil(activeEnemy.health / headDamage) + " hits to kill");
         }
-        if (activeEnemy.hasHead && activeEnemy.backMultiplier !== null) {
+        if ((activeEnemy.hasHead || activeEnemy.hasTumors) && activeEnemy.backMultiplier !== null) {
             createResultsRow((activeEnemy.hasTumors ? "Back Tumors" : "Occiput") + " Damage", occiputDamage, Math.ceil(activeEnemy.health / occiputDamage) + " hits to kill");
         }
         createResultsRow("Base Damage Range", baseDamageL + "-" + baseDamageC, "", DAMAGE_RANGE_COLOR);
