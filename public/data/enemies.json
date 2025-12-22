@@ -9,7 +9,8 @@
     "tongueDamage": 12.0,
     "projectileDamage": null,
     "hasHead": true,
-    "hasTumors": false
+    "hasTumors": false,
+    "armorMultiplier": null
   },
   {
     "name": "Shooter",
@@ -21,7 +22,8 @@
     "tongueDamage": null,
     "projectileDamage": 5.0,
     "hasHead": true,
-    "hasTumors": false
+    "hasTumors": false,
+    "armorMultiplier": null
   },
   {
     "name": "Scout",
@@ -33,7 +35,8 @@
     "tongueDamage": null,
     "projectileDamage": 4.0,
     "hasHead": true,
-    "hasTumors": false
+    "hasTumors": false,
+    "armorMultiplier": null
   },
   {
     "name": "Giant",
@@ -45,7 +48,8 @@
     "tongueDamage": 24.0,
     "projectileDamage": null,
     "hasHead": true,
-    "hasTumors": false
+    "hasTumors": false,
+    "armorMultiplier": null
   },
   {
     "name": "Big Shooter",
@@ -57,7 +61,8 @@
     "tongueDamage": null,
     "projectileDamage": 6.0,
     "hasHead": true,
-    "hasTumors": false
+    "hasTumors": false,
+    "armorMultiplier": null
   },
   {
     "name": "Hybrid",
@@ -69,7 +74,8 @@
     "tongueDamage": null,
     "projectileDamage": 3.57,
     "hasHead": true,
-    "hasTumors": false
+    "hasTumors": false,
+    "armorMultiplier": null
   },
   {
     "name": "Charger",
@@ -81,7 +87,8 @@
     "tongueDamage": 18.0,
     "projectileDamage": null,
     "hasHead": false,
-    "hasTumors": false
+    "hasTumors": false,
+    "armorMultiplier": null
   },
   {
     "name": "Big Charger",
@@ -93,7 +100,8 @@
     "tongueDamage": 24.0,
     "projectileDamage": null,
     "hasHead": false,
-    "hasTumors": false
+    "hasTumors": false,
+    "armorMultiplier": null
   },
   {
     "name": "Charger Scout",
@@ -105,7 +113,8 @@
     "tongueDamage": null,
     "projectileDamage": null,
     "hasHead": false,
-    "hasTumors": false
+    "hasTumors": false,
+    "armorMultiplier": null
   },
   {
     "name": "Shadow",
@@ -117,7 +126,8 @@
     "tongueDamage": 12.0,
     "projectileDamage": null,
     "hasHead": true,
-    "hasTumors": false
+    "hasTumors": false,
+    "armorMultiplier": null
   },
   {
     "name": "Big Shadow",
@@ -129,7 +139,8 @@
     "tongueDamage": 24.0,
     "projectileDamage": null,
     "hasHead": true,
-    "hasTumors": false
+    "hasTumors": false,
+    "armorMultiplier": null
   },
   {
     "name": "Shadow Scout",
@@ -141,7 +152,8 @@
     "tongueDamage": null,
     "projectileDamage": 4.0,
     "hasHead": true,
-    "hasTumors": false
+    "hasTumors": false,
+    "armorMultiplier": null
   },
   {
     "name": "Baby Striker",
@@ -153,7 +165,8 @@
     "tongueDamage": 4.0,
     "projectileDamage": null,
     "hasHead": true,
-    "hasTumors": false
+    "hasTumors": false,
+    "armorMultiplier": null
   },
   {
     "name": "Flyer",
@@ -177,19 +190,21 @@
     "tongueDamage": null,
     "projectileDamage": 4.0,
     "hasHead": true,
-    "hasTumors": false
+    "hasTumors": false,
+    "armorMultiplier": 0.0001
   },
   {
     "name": "Snatcher",
     "health": 225.0,
-    "staggerHp": 40.0,
+    "staggerHp": 50.0,
     "precisionMultiplier": null,
     "backMultiplier": 2.0,
     "meleeDamage": 17.0,
     "tongueDamage": null,
     "projectileDamage": null,
     "hasHead": false,
-    "hasTumors": false
+    "hasTumors": false,
+    "armorMultiplier": 0.2
   },
   {
     "name": "Mother",
@@ -201,7 +216,8 @@
     "tongueDamage": null,
     "projectileDamage": null,
     "hasHead": false,
-    "hasTumors": true
+    "hasTumors": true,
+    "armorMultiplier": 0.001
   },
   {
     "name": "Big Mother",
@@ -213,7 +229,8 @@
     "tongueDamage": null,
     "projectileDamage": null,
     "hasHead": false,
-    "hasTumors": true
+    "hasTumors": true,
+    "armorMultiplier": 0.001
   },
   {
     "name": "Tank",
@@ -225,31 +242,60 @@
     "tongueDamage": 14.0,
     "projectileDamage": null,
     "hasHead": false,
-    "hasTumors": true
+    "hasTumors": true,
+    "armorMultiplier": 0.01
   },
   {
-    "name": "Kraken",
+    "name": "Kraken (R6D1)",
     "health": 6000.0,
-    "staggerHp": 6000.0,
+    "staggerHp": null,
     "precisionMultiplier": 1.5,
     "backMultiplier": null,
     "meleeDamage": null,
     "tongueDamage": null,
     "projectileDamage": 4.0,
     "hasHead": false,
-    "hasTumors": true
+    "hasTumors": true,
+    "armorMultiplier": 0.001
+  },
+  {
+    "name": "Kraken (R8B2)",
+    "health": 1500.0,
+    "staggerHp": null,
+    "precisionMultiplier": 1.5,
+    "backMultiplier": null,
+    "meleeDamage": null,
+    "tongueDamage": null,
+    "projectileDamage": 4.0,
+    "hasHead": false,
+    "hasTumors": true,
+    "armorMultiplier": 0.001
+  },
+  {
+    "name": "Kraken (R8E2)",
+    "health": 4500.0,
+    "staggerHp": null,
+    "precisionMultiplier": 1.7,
+    "backMultiplier": null,
+    "meleeDamage": null,
+    "tongueDamage": null,
+    "projectileDamage": 4.0,
+    "hasHead": false,
+    "hasTumors": true,
+    "armorMultiplier": 0.001
   },
   {
     "name": "Immortal",
-    "health": 1000000000.0,
-    "staggerHp": 1000000000.0,
+    "health": 9999999.0,
+    "staggerHp": 400.0,
     "precisionMultiplier": null,
     "backMultiplier": null,
     "meleeDamage": 32.0,
     "tongueDamage": 14.0,
     "projectileDamage": null,
     "hasHead": false,
-    "hasTumors": false
+    "hasTumors": false,
+    "armorMultiplier": 0.01
   },
   {
     "name": "Nightmare Striker",
@@ -261,7 +307,8 @@
     "tongueDamage": 8.0,
     "projectileDamage": null,
     "hasHead": false,
-    "hasTumors": true
+    "hasTumors": true,
+    "armorMultiplier": null
   },
   {
     "name": "Nightmare Shooter",
@@ -273,7 +320,8 @@
     "tongueDamage": 12.0,
     "projectileDamage": 5.55,
     "hasHead": true,
-    "hasTumors": true
+    "hasTumors": true,
+    "armorMultiplier": null
   },
   {
     "name": "Nightmare Scout",
@@ -285,7 +333,8 @@
     "tongueDamage": null,
     "projectileDamage": 4.0,
     "hasHead": false,
-    "hasTumors": true
+    "hasTumors": true,
+    "armorMultiplier": 0.3
   },
   {
     "name": "Nightmare Giant",
@@ -297,7 +346,8 @@
     "tongueDamage": null,
     "projectileDamage": 5.55,
     "hasHead": false,
-    "hasTumors": false
+    "hasTumors": false,
+    "armorMultiplier": null
   },
   {
     "name": "Nightmare Baby Striker",
@@ -309,7 +359,8 @@
     "tongueDamage": 4.0,
     "projectileDamage": null,
     "hasHead": false,
-    "hasTumors": false
+    "hasTumors": false,
+    "armorMultiplier": null
   },
   {
     "name": "Mega Mother",
@@ -321,6 +372,7 @@
     "tongueDamage": 12.0,
     "projectileDamage": 5.55,
     "hasHead": false,
-    "hasTumors": true
+    "hasTumors": true,
+    "armorMultiplier": 0.001
   }
 ]
