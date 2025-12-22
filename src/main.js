@@ -30,7 +30,7 @@ const boosterLabel = document.getElementById("boosterLabel");
 
 const resultsContainer = document.getElementById("resultsContainer");
 
-const ONESHOT_COLOR = "#fc0303";
+const ONESHOT_COLOR = "#ff7070";
 const STAGGER_COLOR = "#5496ff";
 const DAMAGE_RANGE_COLOR = "#6effa3";
 
@@ -102,11 +102,11 @@ function initResultsPanel() {
 
     chargeSlider.addEventListener("input", () => {
         let value = Number(chargeSlider.value);
-        chargeLabel.textContent = `Charge: ${Math.round(value * 100)}%`;
+        chargeLabel.textContent = `Melee Charge: ${Math.round(value * 100)}%`;
         updateResults();
     })
     chargeSlider.value = 100;
-    chargeLabel.textContent = "Charge: 100%"
+    chargeLabel.textContent = "Melee Charge: 100%"
 }
 
 function createStatsRow(parent, labelText, valueText) {
@@ -308,15 +308,35 @@ function updateResults() {
         const headDamageStag = activeWeapon.getDamage(charge, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, true, false, false, boosterMultiplier, true);
         const occiputDamageStag = activeWeapon.getDamage(charge, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, true, true, false, boosterMultiplier, true);
 
-        createResultsRow("Base Damage", baseDamage, Math.ceil(activeEnemy.health / baseDamage) + " hits to kill");
+        if (activeWeapon.cSleepMul !== 1) {
+            const baseDamageSleep = activeWeapon.getDamage(charge, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, false, false, true, boosterMultiplier);
+            createResultsRow("Base Damage", baseDamage + " (" + baseDamageSleep + " sleeping)", Math.ceil(activeEnemy.health / baseDamage) + " hits to kill");
+        } else {
+            createResultsRow("Base Damage", baseDamage, Math.ceil(activeEnemy.health / baseDamage) + " hits to kill");
+        }
         if (activeEnemy.backMultiplier !== 1 && activeEnemy.backMultiplier !== null) {
-            createResultsRow("Back Damage", backDamage, Math.ceil(activeEnemy.health / backDamage) + " hits to kill");
+            if (activeWeapon.cSleepMul !== 1) {
+                const backDamageSleep = activeWeapon.getDamage(charge, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, false, true, true, boosterMultiplier);
+                createResultsRow("Back Damage", backDamage + " (" + backDamageSleep + " sleeping)", Math.ceil(activeEnemy.health / backDamage) + " hits to kill");
+            } else {
+                createResultsRow("Back Damage", backDamage, Math.ceil(activeEnemy.health / backDamage) + " hits to kill");
+            }
         }
         if (activeEnemy.precisionMultiplier !== 1 && activeEnemy.precisionMultiplier !== null) {
-            createResultsRow((activeEnemy.hasHead ? "Head" : "Tumor") + " Damage", headDamage, Math.ceil(activeEnemy.health / headDamage) + " hits to kill");
+            if (activeWeapon.cSleepMul !== 1) {
+                const headDamageSleep = activeWeapon.getDamage(charge, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, true, false, true, boosterMultiplier);
+                createResultsRow((activeEnemy.hasHead ? "Head" : "Tumor") + " Damage", headDamage + " (" + headDamageSleep + " sleeping)", Math.ceil(activeEnemy.health / headDamage) + " hits to kill");
+            } else {
+                createResultsRow((activeEnemy.hasHead ? "Head" : "Tumor") + " Damage", headDamage, Math.ceil(activeEnemy.health / headDamage) + " hits to kill");
+            }
         }
         if ((activeEnemy.hasHead || activeEnemy.hasTumors) && activeEnemy.backMultiplier !== null) {
-            createResultsRow((activeEnemy.hasTumors ? "Back Tumors" : "Occiput") + " Damage", occiputDamage, Math.ceil(activeEnemy.health / occiputDamage) + " hits to kill");
+            if (activeWeapon.cSleepMul !== 1) {
+                const occiputDamageSleep = activeWeapon.getDamage(charge, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, true, true, true, boosterMultiplier);
+                createResultsRow((activeEnemy.hasTumors ? "Back Tumors" : "Occiput") + " Damage", occiputDamage + " (" + occiputDamageSleep + " sleeping)", Math.ceil(activeEnemy.health / occiputDamage) + " hits to kill");
+            } else {
+                createResultsRow((activeEnemy.hasTumors ? "Back Tumors" : "Occiput") + " Damage", occiputDamage, Math.ceil(activeEnemy.health / occiputDamage) + " hits to kill");
+            }
         }
         createResultsRow("Base Damage Range", baseDamageL + "-" + baseDamageC, "", DAMAGE_RANGE_COLOR);
         if (activeEnemy.backMultiplier !== 1 && activeEnemy.backMultiplier !== null) {
