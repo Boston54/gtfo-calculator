@@ -13,22 +13,24 @@ export class Gun {
     getBaseDamageForDistance(distance) {
         if (distance <= this.falloffStart) return this.damage;
         if (distance >= this.falloffEnd) return this.damage * 0.1;
-        return this.damage * (1 - 0.9 * (distance - this.falloffStart) / (this.falloffEnd - this.falloffStart));
+        let falloff = 1 - (distance - this.falloffStart) / (this.falloffEnd - this.falloffStart);
+        if (falloff < 0.1) falloff = 0.1;
+        return this.damage * falloff;
     }
 
     getDamage(distance, enemyPrecMul, enemyBackMul, isPrec, isBack, boosterDamageModifier, isStaggerDamage = false) {
         let prec = !isPrec || enemyPrecMul == null ? 1 : this.precMul * enemyPrecMul;
-        let back = !isBack || enemyBackMul == null ? 1 : enemyBackMul;
-        let stag = !isStaggerDamage ? 1 : this.staggerMul;
-        const damage = (this.getBaseDamageForDistance(distance) * prec * back * stag * boosterDamageModifier).toFixed(2);
-        if (damage < this.damage) return this.damage;
-        return damage;
+        if (prec < 1) prec = 1;
+        const back = !isBack || enemyBackMul == null ? 1 : enemyBackMul;
+        const stag = !isStaggerDamage ? 1 : this.staggerMul;
+        const dist = this.getBaseDamageForDistance(distance);
+        return (dist * prec * back * stag * boosterDamageModifier).toFixed(2);
     }
 
     getOneshotDistance(enemyHealth, enemyPrecMul, enemyBackMul, isPrec, isBack, boosterDamageModifier) {
-        let damage = this.getDamage(0, enemyPrecMul, enemyBackMul, isPrec, isBack, boosterDamageModifier);
-        if (damage * 0.1 > enemyHealth) return "∞";
-        return (this.falloffStart + (this.falloffEnd - this.falloffStart) * ((1 - (enemyHealth / damage)) / 0.9)).toFixed(2);
+        const damage = this.getDamage(0, enemyPrecMul, enemyBackMul, isPrec, isBack, boosterDamageModifier);
+        if (enemyHealth <= damage * 0.1) return "∞";
+        return (this.falloffStart + (this.falloffEnd - this.falloffStart) * (1 - (enemyHealth / damage))).toFixed(2);
     }
 }
 
@@ -59,18 +61,18 @@ export class Melee {
 
     getDamage(charge, enemyPrecMul, enemyBackMul, isPrec, isBack, isSleeping, boosterDamageModifier, isStaggerDamage = false) {
         let prec = !isPrec || enemyPrecMul == null ? 1 : enemyPrecMul * ((this.cPrecMul - this.lPrecMul) * (charge**3) + this.lPrecMul);
-        let back = !isBack || enemyBackMul == null ? 1 : enemyBackMul * ((this.cBackMul - this.lBackMul) * (charge**3) + this.lBackMul);
-        let sleep = !isSleeping ? 1 : (this.cSleepMul - this.lSleepMul) * (charge**3) + this.lSleepMul;
-        let stag = !isStaggerDamage ? 1 : (this.cStaggerMul - this.lStaggerMul) * (charge**3) + this.lStaggerMul;
-
-        let baseDamage = this.getBaseDamageForCharge(charge);
+        if (prec < 1) prec = 1;
+        const back = !isBack || enemyBackMul == null ? 1 : enemyBackMul * ((this.cBackMul - this.lBackMul) * (charge**3) + this.lBackMul);
+        const sleep = !isSleeping ? 1 : (this.cSleepMul - this.lSleepMul) * (charge**3) + this.lSleepMul;
+        const stag = !isStaggerDamage ? 1 : (this.cStaggerMul - this.lStaggerMul) * (charge**3) + this.lStaggerMul;
+        const baseDamage = this.getBaseDamageForCharge(charge);
         return (baseDamage * prec * back * sleep * stag * boosterDamageModifier).toFixed(2);
     }
 
     getOneshotCharge(enemyHealth, enemyPrecMul, enemyBackMul, isPrec, isBack, isSleeping, boosterDamageModifier) {
-        let lightDamage = this.getDamage(0, enemyPrecMul, enemyBackMul, isPrec, isBack, isSleeping, boosterDamageModifier);
-        let chargedDamage = this.getDamage(1, enemyPrecMul, enemyBackMul, isPrec, isBack, isSleeping, boosterDamageModifier);
-        let charge = ((enemyHealth - lightDamage) / (chargedDamage - lightDamage)) ** (1 / 3);
+        const lightDamage = this.getDamage(0, enemyPrecMul, enemyBackMul, isPrec, isBack, isSleeping, boosterDamageModifier);
+        const chargedDamage = this.getDamage(1, enemyPrecMul, enemyBackMul, isPrec, isBack, isSleeping, boosterDamageModifier);
+        const charge = ((enemyHealth - lightDamage) / (chargedDamage - lightDamage)) ** (1 / 3);
         return isNaN(charge) ? 0 : charge;
     }
 }

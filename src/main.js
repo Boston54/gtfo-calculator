@@ -255,11 +255,11 @@ function updateResults() {
 
         if (activeEnemy.armorMultiplier !== null && activeEnemy.wholeBodyArmor === true) {
             baseDamageDist = (baseDamageDist * activeEnemy.armorMultiplier).toFixed(2);
-            backDamageDist = (baseDamageDist * activeEnemy.armorMultiplier).toFixed(2);
-            baseDamageSR = (baseDamageDist * activeEnemy.armorMultiplier).toFixed(2);
-            backDamageSR = (baseDamageDist * activeEnemy.armorMultiplier).toFixed(2);
-            baseDamageDistStag = (baseDamageDist * activeEnemy.armorMultiplier).toFixed(2);
-            backDamageDistStag = (baseDamageDist * activeEnemy.armorMultiplier).toFixed(2);
+            backDamageDist = (backDamageDist * activeEnemy.armorMultiplier).toFixed(2);
+            baseDamageSR = (baseDamageSR * activeEnemy.armorMultiplier).toFixed(2);
+            backDamageSR = (backDamageSR * activeEnemy.armorMultiplier).toFixed(2);
+            baseDamageDistStag = (baseDamageDistStag * activeEnemy.armorMultiplier).toFixed(2);
+            backDamageDistStag = (backDamageDistStag * activeEnemy.armorMultiplier).toFixed(2);
         }
 
         createResultsRow("Base Damage", baseDamageDist, Math.ceil(activeEnemy.health / baseDamageDist) + " hit(s) to kill");
@@ -322,6 +322,10 @@ function updateResults() {
         let backDamageSleep = activeWeapon.getDamage(charge, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, false, true, true, boosterMultiplier);
         const headDamageSleep = activeWeapon.getDamage(charge, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, true, false, true, boosterMultiplier);
         const occiputDamageSleep = activeWeapon.getDamage(charge, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, true, true, true, boosterMultiplier);
+        let baseDamageSleepC = activeWeapon.getDamage(1, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, false, false, true, boosterMultiplier);
+        let backDamageSleepC = activeWeapon.getDamage(1, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, false, true, true, boosterMultiplier);
+        const headDamageSleepC = activeWeapon.getDamage(1, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, true, false, true, boosterMultiplier);
+        const occiputDamageSleepC = activeWeapon.getDamage(1, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, true, true, true, boosterMultiplier);
         let baseDamageL = activeWeapon.getDamage(0, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, false, false, false, boosterMultiplier);
         let backDamageL = activeWeapon.getDamage(0, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, false, true, false, boosterMultiplier);
         const headDamageL = activeWeapon.getDamage(0, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, true, false, false, boosterMultiplier);
@@ -339,13 +343,16 @@ function updateResults() {
             baseDamage = (baseDamage * activeEnemy.armorMultiplier).toFixed(2);
             backDamage = (baseDamage * activeEnemy.armorMultiplier).toFixed(2);
             baseDamageSleep = (baseDamage * activeEnemy.armorMultiplier).toFixed(2);
-            backDamageSleep = (baseDamage * activeEnemy.armorMultiplier).toFixed(2);
-            baseDamageL = (baseDamage * activeEnemy.armorMultiplier).toFixed(2);
-            backDamageL = (baseDamage * activeEnemy.armorMultiplier).toFixed(2);
-            baseDamageC = (baseDamage * activeEnemy.armorMultiplier).toFixed(2);
-            backDamageC = (baseDamage * activeEnemy.armorMultiplier).toFixed(2);
-            baseDamageStag = (baseDamage * activeEnemy.armorMultiplier).toFixed(2);
-            backDamageStag = (baseDamage * activeEnemy.armorMultiplier).toFixed(2);
+            backDamageSleep = (backDamage * activeEnemy.armorMultiplier).toFixed(2);
+            baseDamageSleepC = (baseDamageSleepC * activeEnemy.armorMultiplier).toFixed(2);
+            backDamageSleepC = (backDamageSleepC * activeEnemy.armorMultiplier).toFixed(2);
+
+            baseDamageL = (baseDamageL * activeEnemy.armorMultiplier).toFixed(2);
+            backDamageL = (backDamageL * activeEnemy.armorMultiplier).toFixed(2);
+            baseDamageC = (baseDamageC * activeEnemy.armorMultiplier).toFixed(2);
+            backDamageC = (backDamageC * activeEnemy.armorMultiplier).toFixed(2);
+            baseDamageStag = (baseDamageStag * activeEnemy.armorMultiplier).toFixed(2);
+            backDamageStag = (backDamageStag * activeEnemy.armorMultiplier).toFixed(2);
         }
 
         if (activeWeapon.cSleepMul !== 1) {
@@ -402,14 +409,14 @@ function updateResults() {
         if ((activeEnemy.hasHead || activeEnemy.hasTumors) && activeEnemy.backMultiplier !== null) {
             createResultsRow((activeEnemy.hasTumors ? "Back Tumor" : "Occiput") + " Damage Range", occiputDamageL + "-" + occiputDamageC, "", DAMAGE_RANGE_COLOR);
         }
-        if (baseDamageC >= activeEnemy.health || baseDamageSleep >= activeEnemy.health) {
+        if (baseDamageC >= activeEnemy.health || baseDamageSleepC >= activeEnemy.health) {
             const baseOneshotCharge = activeWeapon.getOneshotCharge(activeEnemy.health, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, false, false, false, boosterMultiplier);
             if (activeWeapon.cSleepMul !== 1) {
                 const baseOneshotChargeSleep = (activeWeapon.getOneshotCharge(activeEnemy.health, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, false, false, true, boosterMultiplier) * 100).toFixed(2);
                 let display;
                 if (baseDamageC < activeEnemy.health) {
                     display = baseOneshotChargeSleep + "%* (while sleeping)"
-                } else if (baseDamageSleep < activeEnemy.health) {
+                } else if (baseDamageSleepC < activeEnemy.health) {
                     display = (baseOneshotCharge * 100).toFixed(2) + "%"
                 } else {
                     display = (baseOneshotCharge * 100).toFixed(2) + "% (" + baseOneshotChargeSleep + "% sleeping)"
@@ -419,14 +426,14 @@ function updateResults() {
                 createResultsRow("Base Oneshot Charge", (baseOneshotCharge * 100).toFixed(2) + "%", "", ONESHOT_COLOR);
             }
         }
-        if (activeEnemy.backMultiplier !== 1 && activeEnemy.backMultiplier !== null && (backDamageC >= activeEnemy.health || backDamageSleep >= activeEnemy.health)) {
+        if (activeEnemy.backMultiplier !== 1 && activeEnemy.backMultiplier !== null && (backDamageC >= activeEnemy.health || backDamageSleepC >= activeEnemy.health)) {
             const backOneshotCharge = activeWeapon.getOneshotCharge(activeEnemy.health, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, false, true, false, boosterMultiplier);
             if (activeWeapon.cSleepMul !== 1) {
                 const backOneshotChargeSleep = (activeWeapon.getOneshotCharge(activeEnemy.health, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, false, true, true, boosterMultiplier) * 100).toFixed(2);
                 let display;
                 if (baseDamageC < activeEnemy.health) {
                     display = backOneshotChargeSleep + "%* (while sleeping)"
-                } else if (baseDamageSleep < activeEnemy.health) {
+                } else if (baseDamageSleepC < activeEnemy.health) {
                     display = (backOneshotCharge * 100).toFixed(2) + "%"
                 } else {
                     display = (backOneshotCharge * 100).toFixed(2) + "% (" + backOneshotChargeSleep + "% sleeping)"
@@ -436,14 +443,14 @@ function updateResults() {
                 createResultsRow("Back Oneshot Charge", (backOneshotCharge * 100).toFixed(2) + "%", "", ONESHOT_COLOR);
             }
         }
-        if (activeEnemy.precisionMultiplier !== null && (headDamageC >= activeEnemy.health || headDamageSleep >= activeEnemy.health)) {
+        if (activeEnemy.precisionMultiplier !== null && (headDamageC >= activeEnemy.health || headDamageSleepC >= activeEnemy.health)) {
             const headOneshotCharge = activeWeapon.getOneshotCharge(activeEnemy.health, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, true, false, false, boosterMultiplier);
             if (activeWeapon.cSleepMul !== 1) {
                 const headOneshotChargeSleep = (activeWeapon.getOneshotCharge(activeEnemy.health, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, true, false, true, boosterMultiplier) * 100).toFixed(2);
                 let display;
                 if (headDamageC < activeEnemy.health) {
                     display = headOneshotChargeSleep + "%* (while sleeping)"
-                } else if (headDamageSleep < activeEnemy.health) {
+                } else if (headDamageSleepC < activeEnemy.health) {
                     display = (headOneshotCharge * 100).toFixed(2) + "%"
                 } else {
                     display = (headOneshotCharge * 100).toFixed(2) + "% (" + headOneshotChargeSleep + "% sleeping)"
@@ -453,14 +460,14 @@ function updateResults() {
                 createResultsRow((activeEnemy.hasTumors ? "Tumor" : "Head") + " Oneshot Charge", (headOneshotCharge * 100).toFixed(2) + "%", "", ONESHOT_COLOR);
             }
         }
-        if ((activeEnemy.hasHead || activeEnemy.hasTumors) && activeEnemy.backMultiplier !== null && (occiputDamageC >= activeEnemy.health || occiputDamageSleep >= activeEnemy.health)) {
+        if ((activeEnemy.hasHead || activeEnemy.hasTumors) && activeEnemy.backMultiplier !== null && (occiputDamageC >= activeEnemy.health || occiputDamageSleepC >= activeEnemy.health)) {
             const occiputOneshotCharge = activeWeapon.getOneshotCharge(activeEnemy.health, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, true, true, false, boosterMultiplier);
             if (activeWeapon.cSleepMul !== 1) {
                 const occiputOneshotChargeSleep = (activeWeapon.getOneshotCharge(activeEnemy.health, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, true, true, true, boosterMultiplier) * 100).toFixed(2);
                 let display;
                 if (headDamageC < activeEnemy.health) {
                     display = occiputOneshotChargeSleep + "%* (while sleeping)"
-                } else if (headDamageSleep < activeEnemy.health) {
+                } else if (headDamageSleepC < activeEnemy.health) {
                     display = (occiputOneshotCharge * 100).toFixed(2) + "%"
                 } else {
                     display = (occiputOneshotCharge * 100).toFixed(2) + "% (" + occiputOneshotChargeSleep + "% sleeping)"
