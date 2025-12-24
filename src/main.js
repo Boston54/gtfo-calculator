@@ -363,7 +363,7 @@ function updateResults() {
         } else {
             createResultsRow("Base Damage", baseDamage, Math.ceil(activeEnemy.health / baseDamage) + " hit(s) to kill");
             if (activeEnemy.armorMultiplier !== null && activeEnemy.wholeBodyArmor === false) {
-                createResultsRow("Base Damage", (baseDamage * activeEnemy.armorMultiplier).toFixed(2), Math.ceil(activeEnemy.health / (baseDamage * activeEnemy.armorMultiplier)) + " hit(s) to kill");
+                createResultsRow("Base Armor Damage", (baseDamage * activeEnemy.armorMultiplier).toFixed(2), Math.ceil(activeEnemy.health / (baseDamage * activeEnemy.armorMultiplier)) + " hit(s) to kill");
             }
         }
         if (activeEnemy.backMultiplier !== 1 && activeEnemy.backMultiplier !== null) {
