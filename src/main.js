@@ -189,7 +189,7 @@ function setAllowedDistance(start, end) {
  */
 function onChangeWeaponGun(gun) {
     // Convert the json object into a Gun object.
-    activeWeapon = new Gun(gun.slot, gun.technicalName, gun.name, gun.damage, gun.staggerMultiplier, gun.precisionMultiplier, gun.falloffStart, gun.falloffEnd);
+    activeWeapon = new Gun(gun.slot, gun.technicalName, gun.name, gun.damage, gun.staggerMultiplier, gun.precisionMultiplier, gun.hasBackDamage, gun.falloffStart, gun.falloffEnd);
 
     // Show the distance slider and hide the charge slider.
     distanceContainer.style.display = "block";
@@ -375,7 +375,7 @@ function updateResults() {
         if (activeEnemy.armorMultiplier !== null && activeEnemy.wholeBodyArmor === false) {
             createResultsRow("Base Armor Damage", (baseDamageDist * activeEnemy.armorMultiplier).toFixed(2), Math.ceil(activeEnemy.health / (baseDamageDist * activeEnemy.armorMultiplier)) + " hit(s) to kill");
         }
-        if (activeEnemy.backMultiplier !== 1 && activeEnemy.backMultiplier !== null) {
+        if (activeWeapon.hasBackDamage && activeEnemy.backMultiplier !== 1 && activeEnemy.backMultiplier !== null) {
             createResultsRow("Back Damage", backDamageDist, Math.ceil(activeEnemy.health / backDamageDist) + " hit(s) to kill");
             if (activeEnemy.armorMultiplier !== null && activeEnemy.wholeBodyArmor === false) {
                 createResultsRow("Back Armor Damage", (backDamageDist * activeEnemy.armorMultiplier).toFixed(2), Math.ceil(activeEnemy.health / (backDamageDist * activeEnemy.armorMultiplier)) + " hit(s) to kill");
@@ -384,7 +384,7 @@ function updateResults() {
         if (activeEnemy.precisionMultiplier !== null) {
             createResultsRow((activeEnemy.hasHead ? "Head" : "Tumor") + " Damage", headDamageDist, Math.ceil(activeEnemy.health / headDamageDist) + " hit(s) to kill");
         }
-        if ((activeEnemy.hasHead || activeEnemy.hasTumors) && activeEnemy.backMultiplier !== null) {
+        if (activeWeapon.hasBackDamage && (activeEnemy.hasHead || activeEnemy.hasTumors) && activeEnemy.backMultiplier !== null) {
             createResultsRow((activeEnemy.hasTumors ? "Back Tumor" : "Occiput") + " Damage", occiputDamageDist, Math.ceil(activeEnemy.health / occiputDamageDist) + " hit(s) to kill");
         }
 
@@ -393,7 +393,7 @@ function updateResults() {
             const baseOneshotDistance = activeWeapon.getOneshotDistance(activeEnemy.health, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, false, false, boosterMultiplier);
             createResultsRow("Base Oneshot Distance", baseOneshotDistance + "m", "", ONESHOT_COLOR);
         }
-        if (activeEnemy.backMultiplier !== 1 && activeEnemy.backMultiplier !== null && backDamageSR >= activeEnemy.health) {
+        if (activeWeapon.hasBackDamage && activeEnemy.backMultiplier !== 1 && activeEnemy.backMultiplier !== null && backDamageSR >= activeEnemy.health) {
             const backOneshotDistance = activeWeapon.getOneshotDistance(activeEnemy.health, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, false, true, boosterMultiplier);
             createResultsRow("Back Oneshot Distance", backOneshotDistance + "m", "", ONESHOT_COLOR);
         }
@@ -401,7 +401,7 @@ function updateResults() {
             const headOneshotDistance = activeWeapon.getOneshotDistance(activeEnemy.health, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, true, false, boosterMultiplier);
             createResultsRow((activeEnemy.hasHead ? "Head" : "Tumor") + " Oneshot Distance", headOneshotDistance + "m", "", ONESHOT_COLOR);
         }
-        if ((activeEnemy.hasHead || activeEnemy.hasTumors) && activeEnemy.backMultiplier !== null && occiputDamageSR >= activeEnemy.health) {
+        if (activeWeapon.hasBackDamage && (activeEnemy.hasHead || activeEnemy.hasTumors) && activeEnemy.backMultiplier !== null && occiputDamageSR >= activeEnemy.health) {
             const occiputOneshotDistance = activeWeapon.getOneshotDistance(activeEnemy.health, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, true, true, boosterMultiplier);
             createResultsRow((activeEnemy.hasTumors ? "Back Tumor" : "Occiput") + " Oneshot Distance", occiputOneshotDistance + "m", "", ONESHOT_COLOR);
         }
@@ -412,7 +412,7 @@ function updateResults() {
             if (activeEnemy.armorMultiplier !== null && activeEnemy.wholeBodyArmor === false) {
                 createResultsRow("Base Armor Stagger Damage", (baseDamageDistStag * activeEnemy.armorMultiplier).toFixed(2), Math.ceil(activeEnemy.staggerHp / (baseDamageDistStag * activeEnemy.armorMultiplier)) + " hit(s) to stagger", STAGGER_COLOR);
             }
-            if (activeEnemy.backMultiplier !== 1 && activeEnemy.backMultiplier !== null) {
+            if (activeWeapon.hasBackDamage && activeEnemy.backMultiplier !== 1 && activeEnemy.backMultiplier !== null) {
                 createResultsRow("Back Stagger Damage", backDamageDistStag, Math.ceil(activeEnemy.staggerHp / backDamageDistStag) + " hit(s) to stagger", STAGGER_COLOR);
                 if (activeEnemy.armorMultiplier !== null && activeEnemy.wholeBodyArmor === false) {
                     createResultsRow("Back Armor Stagger Damage", (backDamageDistStag * activeEnemy.armorMultiplier).toFixed(2), Math.ceil(activeEnemy.staggerHp / (backDamageDistStag * activeEnemy.armorMultiplier)) + " hit(s) to stagger", STAGGER_COLOR);
@@ -421,7 +421,7 @@ function updateResults() {
             if (activeEnemy.precisionMultiplier !== null) {
                 createResultsRow((activeEnemy.hasHead ? "Head" : "Tumor") + " Stagger Damage", headDamageDistStag, Math.ceil(activeEnemy.staggerHp / headDamageDistStag) + " hit(s) to stagger", STAGGER_COLOR);
             }
-            if ((activeEnemy.hasHead || activeEnemy.hasTumors) && activeEnemy.backMultiplier !== null) {
+            if (activeWeapon.hasBackDamage && (activeEnemy.hasHead || activeEnemy.hasTumors) && activeEnemy.backMultiplier !== null) {
                 createResultsRow((activeEnemy.hasTumors ? "Back Tumor" : "Occiput") + " Stagger Damage", occiputDamageDistStag, Math.ceil(activeEnemy.staggerHp / occiputDamageDistStag) + " hit(s) to stagger", STAGGER_COLOR);
             }
         }

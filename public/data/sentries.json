@@ -6,6 +6,7 @@
     "damage": 48.1,
     "staggerMultiplier": 1,
     "precisionMultiplier": 1,
+    "hasBackDamage": false,
     "falloffStart": 30,
     "falloffEnd": 100
   },
@@ -16,6 +17,7 @@
     "damage": 2.01,
     "staggerMultiplier": 1,
     "precisionMultiplier": 1,
+    "hasBackDamage": false,
     "falloffStart": 10,
     "falloffEnd": 40
   },
@@ -26,6 +28,7 @@
     "damage": 15.05,
     "staggerMultiplier": 1,
     "precisionMultiplier": 1,
+    "hasBackDamage": false,
     "falloffStart": 4,
     "falloffEnd": 40
   },
@@ -36,6 +39,7 @@
     "damage": 0.8,
     "staggerMultiplier": 8,
     "precisionMultiplier": 0.834,
+    "hasBackDamage": true,
     "falloffStart": 10,
     "falloffEnd": 70
   }

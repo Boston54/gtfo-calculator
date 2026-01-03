@@ -1,10 +1,11 @@
 export class Gun {
-    constructor(slot, technicalName, name, damage, staggerMul, precMul, falloffStart, falloffEnd) {
+    constructor(slot, technicalName, name, damage, staggerMul, precMul, hasBackDamage, falloffStart, falloffEnd) {
         this.slot = slot;
         this.technicalName = technicalName;
         this.name = name;
         this.damage = damage;
         this.staggerMul = staggerMul;
+        this.hasBackDamage = hasBackDamage;
         this.precMul = precMul;
         this.falloffStart = falloffStart;
         this.falloffEnd = falloffEnd;
