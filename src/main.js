@@ -71,21 +71,36 @@ function createDropdowns() {
                 let weapon = guns.find(g => g.name === selected);
                 if (weapon !== undefined) onChangeWeaponGun(weapon);
             });
-            loadJson("enemies.json").then(enemies => {
-                enemies.forEach(enemy => {
+            loadJson("sentries.json").then(sentries => {
+                sentries.sort((a, b) => a.name.localeCompare(b.name)).forEach(sentry => {
                     const option = document.createElement("option");
-                    option.value = enemy.name;
-                    option.textContent = enemy.name;
-                    option.info = enemy;
-                    enemySelect.appendChild(option);
+                    sentry.type = "sentry";
+                    option.value = sentry.name;
+                    option.textContent = sentry.name;
+                    weaponSelect.appendChild(option);
                 });
-                enemySelect.addEventListener("change", () => {
-                    let selected = enemySelect.selectedOptions[0].textContent;
-                    let enemy = enemies.find(e => e.name === selected);
-                    if (enemy !== undefined) onChangeEnemy(enemy);
+                weaponSelect.addEventListener("change", () => {
+                    let selected = weaponSelect.selectedOptions[0].textContent;
+                    let weapon = sentries.find(g => g.name === selected);
+                    if (weapon !== undefined) onChangeWeaponGun(weapon);
                 });
-                onChangeEnemy(enemies[0]);
+                loadJson("enemies.json").then(enemies => {
+                    enemies.forEach(enemy => {
+                        const option = document.createElement("option");
+                        option.value = enemy.name;
+                        option.textContent = enemy.name;
+                        option.info = enemy;
+                        enemySelect.appendChild(option);
+                    });
+                    enemySelect.addEventListener("change", () => {
+                        let selected = enemySelect.selectedOptions[0].textContent;
+                        let enemy = enemies.find(e => e.name === selected);
+                        if (enemy !== undefined) onChangeEnemy(enemy);
+                    });
+                    onChangeEnemy(enemies[0]);
+                });
             });
+
         });
     });
 }
@@ -166,11 +181,11 @@ function setAllowedDistance(start, end) {
 }
 
 /**
- * Called when the user changes the selected weapon and the new weapon is a gun (main or special weapon).
+ * Called when the user changes the selected weapon and the new weapon is a gun (main or special weapon) or a sentry.
  * This function will clear and regenerate the entire results panel, and will update the distance slider to the new
  * falloff start and end values.
- * This function takes the json object directly from guns.json, and will convert it into an actual Gun object.
- * @param gun The object for this gun, as represented in guns.json.
+ * This function takes the json object directly from guns.json or sentries.json, and will convert it into a Gun object.
+ * @param gun The object for this gun/sentry, as represented in guns.json or sentries.json.
  */
 function onChangeWeaponGun(gun) {
     // Convert the json object into a Gun object.

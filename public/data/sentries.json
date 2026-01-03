@@ -1,0 +1,42 @@
+[
+  {
+    "slot": "Sentry",
+    "technicalName": "AutoTek 51 RSG",
+    "name": "Sniper Sentry",
+    "damage": 48.1,
+    "staggerMultiplier": 1,
+    "precisionMultiplier": 1,
+    "falloffStart": 30,
+    "falloffEnd": 100
+  },
+  {
+    "slot": "Sentry",
+    "technicalName": "Mechatronic SGB3",
+    "name": "Burst Sentry",
+    "damage": 2.01,
+    "staggerMultiplier": 1,
+    "precisionMultiplier": 1,
+    "falloffStart": 10,
+    "falloffEnd": 40
+  },
+  {
+    "slot": "Sentry",
+    "technicalName": "Mechatronic B5 LFR",
+    "name": "Shotgun Sentry",
+    "damage": 15.05,
+    "staggerMultiplier": 1,
+    "precisionMultiplier": 1,
+    "falloffStart": 4,
+    "falloffEnd": 40
+  },
+  {
+    "slot": "Sentry",
+    "technicalName": "Rad Labs Meduza",
+    "name": "HEL Auto Sentry",
+    "damage": 0.8,
+    "staggerMultiplier": 8,
+    "precisionMultiplier": 0.834,
+    "falloffStart": 10,
+    "falloffEnd": 70
+  }
+]
