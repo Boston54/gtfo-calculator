@@ -5,36 +5,43 @@ async function loadJson(filename) {
     return await response.json();
 }
 
-const enemySelect = document.getElementById("enemySelect");
-const weaponSelect = document.getElementById("weaponSelect");
+const enemySelect = document.getElementById("enemySelect"); // dropdown for selecting enemy
+const weaponSelect = document.getElementById("weaponSelect"); // dropdown for selecting weapon
 
-const weaponTitle = document.getElementById("weaponTitle");
-const weaponStatsRows = document.getElementById("weaponStatsRows");
-const enemyTitle = document.getElementById("enemyTitle");
-const enemyStatsRows = document.getElementById("enemyStatsRows");
-let activeWeapon = null;
-let activeEnemy = null;
+const weaponTitle = document.getElementById("weaponTitle"); // used to display the selected weapon
+const weaponStatsRows = document.getElementById("weaponStatsRows"); // div for weapon stats
+const enemyTitle = document.getElementById("enemyTitle"); // used to display the selected enemy
+const enemyStatsRows = document.getElementById("enemyStatsRows"); // div for enemy stats
+let activeWeapon = null; // active weapon object is saved here
+let activeEnemy = null; // active enemy object is saved here
 
-const distanceContainer = document.getElementById("distanceContainer");
+const distanceContainer = document.getElementById("distanceContainer"); // distance related stuff is stored in this div
 const distanceSlider = document.getElementById("distanceSlider");
 const distanceLabel = document.getElementById("distanceLabel");
 let allowedDistanceMin = 0;
-let allowedDistanceMax = 100;
+let allowedDistanceMax = 100; // this is the highest falloff end that any vanilla weapon has
 
-const chargeContainer = document.getElementById("chargeContainer");
+const chargeContainer = document.getElementById("chargeContainer"); // charge related stuff is stored in this div
 const chargeSlider = document.getElementById("chargeSlider");
 const chargeLabel = document.getElementById("chargeLabel");
 
-const boosterSlider = document.getElementById("boosterSlider");
+const boosterSlider = document.getElementById("boosterSlider"); // booster related stuff is stored in this div
 const boosterLabel = document.getElementById("boosterLabel");
 
-const resultsContainer = document.getElementById("resultsContainer");
+const resultsContainer = document.getElementById("resultsContainer"); // results are put in this div
 
-const ONESHOT_COLOR = "#ff7070";
-const STAGGER_COLOR = "#5496ff";
-const DAMAGE_RANGE_COLOR = "#6effa3";
+const ONESHOT_COLOR = "#ff7070"; // used for oneshot charge for melee, and oneshot distance for guns
+const STAGGER_COLOR = "#5496ff"; // used for stagger damage
+const DAMAGE_RANGE_COLOR = "#6effa3"; // used for the range of damages based on charge/distance
 
-
+/**
+ * Populates the dropdowns for both weapons and enemies based on the contents of enemies.json, melee.json, and guns.json.
+ * The enemies dropdown is sorted based on their position in enemies.json
+ * The weapons dropdown puts melees at the top in alphabetical order, and then guns also in alphabetical order.
+ * These files are read asynchronously, and then onChangeWeapon and onChangeEnemy are called to show the initial results.
+ * After this is run, the selected enemy will be the Striker, and the selected weapon will be the Bat. as these are the
+ * first items in their respective dropdowns.
+ */
 function createDropdowns() {
     loadJson("melee.json").then(melees => {
         melees.sort((a, b) => a.name.localeCompare(b.name)).forEach(melee => {
@@ -83,32 +90,51 @@ function createDropdowns() {
     });
 }
 
+/**
+ * Initialises the distance, booster, and charge sliders that are used for various weapons. These will be enabled or
+ * disabled elsewhere as required, but are all initialised here.
+ */
 function initResultsPanel() {
+    // Define a listener for the distance slider
     distanceSlider.addEventListener("input", () => {
         let value = Number(distanceSlider.value);
+        // Clamp the value to be between the active weapon's falloff start and end
         let clampedValue = Math.min(Math.max(value, allowedDistanceMin), allowedDistanceMax);
         distanceSlider.value = clampedValue
         distanceLabel.textContent = `Distance: ${clampedValue}m`;
+        // Update the results panel with the new distance value
         updateResults();
     });
 
+    // Define a listener for the booster slider
     boosterSlider.addEventListener("input", () => {
         let value = Number(boosterSlider.value);
         boosterLabel.textContent = `Damage Booster: ${Math.round(value * 100)}%`;
+        // Update the results panel with the new booster value
         updateResults();
     });
+    // Initialise the booster slider to 0%
     boosterSlider.value = 0;
     boosterLabel.textContent = `Damage Booster: 0%`;
 
+    // Define a listener for the charge slider
     chargeSlider.addEventListener("input", () => {
         let value = Number(chargeSlider.value);
         chargeLabel.textContent = `Melee Charge: ${Math.round(value * 100)}%`;
+        // Update the results panel with the new charge value
         updateResults();
     })
+    // Initialise the charge slider to 100% (fully charged)
     chargeSlider.value = 100;
     chargeLabel.textContent = "Melee Charge: 100%"
 }
 
+/**
+ * Creates a new row in the stats panel.
+ * @param parent The div to set the new row to be a child of (weaponStatsRows or enemyStatsRows, generally)
+ * @param labelText The label for the entry (displayed on the left)
+ * @param valueText The value for the entry (displayed on the right)
+ */
 function createStatsRow(parent, labelText, valueText) {
     const row = document.createElement("div");
     row.className = "statsRow";
@@ -123,6 +149,11 @@ function createStatsRow(parent, labelText, valueText) {
     parent.appendChild(row);
 }
 
+/**
+ * Updates the allowed distance for the selected gun's start and end falloff ranges.
+ * @param start The falloff start of the weapon
+ * @param end The falloff end of the weapon
+ */
 function setAllowedDistance(start, end) {
     allowedDistanceMin = start;
     allowedDistanceMax = end;
@@ -134,83 +165,135 @@ function setAllowedDistance(start, end) {
     distanceLabel.textContent = `Distance: ${allowedDistanceMin}m`;
 }
 
+/**
+ * Called when the user changes the selected weapon and the new weapon is a gun (main or special weapon).
+ * This function will clear and regenerate the entire results panel, and will update the distance slider to the new
+ * falloff start and end values.
+ * This function takes the json object directly from guns.json, and will convert it into an actual Gun object.
+ * @param gun The object for this gun, as represented in guns.json.
+ */
 function onChangeWeaponGun(gun) {
+    // Convert the json object into a Gun object.
     activeWeapon = new Gun(gun.slot, gun.technicalName, gun.name, gun.damage, gun.staggerMultiplier, gun.precisionMultiplier, gun.falloffStart, gun.falloffEnd);
 
+    // Show the distance slider and hide the charge slider.
     distanceContainer.style.display = "block";
     chargeContainer.style.display = "none";
 
+    // Clear all existing rows from the results panel
     weaponStatsRows.replaceChildren();
+    // Update the selected weapon text
     weaponTitle.textContent = gun.name + " (" + gun.technicalName + ")";
 
     for (const [label, value] of Object.entries(gun)) {
-        if (value === null) continue;
-        if (label === "name" || label === "type" || label === "technicalName") continue;
-        if (label === "staggerMultiplier" && value === 1) continue;
+        if (value === null) continue; // Ignore any null values
+        if (label === "name" || label === "type" || label === "technicalName") continue; // These are displayed elsewhere already
+        if (label === "staggerMultiplier" && value === 1) continue; // If the stagger multiplier is 1, then don't display anything for it
 
+        // Convert the label from camel case to sentence case to make it look better when displayed
         const niceLabel = label.replace(/([A-Z])/g, " $1").replace(/^./, c => c.toUpperCase());
 
+        // Create the new row for this stat
         createStatsRow(weaponStatsRows, niceLabel, value);
     }
 
+    // Update te allowed range on the distance slider
     setAllowedDistance(gun.falloffStart, gun.falloffEnd);
 
+    // Update the results panel with the new information
     updateResults();
 }
 
+/**
+ * Called when the user changes the selected weapon and the new weapon is a melee.
+ * This function will clear and regenerate the entire results panel.
+ * This function takes the json object directly from melee.json, and will convert it into an actual Melee object.
+ * @param melee The object for this melee, as represented in melee.json.
+ */
 function onChangeWeaponMelee(melee) {
+    // Convert the json object into a Melee object
     activeWeapon = new Melee(melee.name, melee.lightDamage, melee.chargedDamage, melee.lightPrecisionMultiplier, melee.chargedPrecisionMultiplier, melee.lightStaggerMultiplier, melee.chargedStaggerMultiplier, melee.lightEnvironmentMultiplier, melee.chargedEnvironmentMultiplier, melee.lightBackstabMultiplier, melee.chargedBackstabMultiplier, melee.lightSleepingMultiplier, melee.chargedSleepingMultiplier, melee.lightStaminaCost, melee.chargedStaminaCost, melee.shoveStaminaCost, melee.chargeTime, melee.autoAttackTime);
 
+    // Show the charge slider and hide the distance slider
     chargeContainer.style.display = "block";
     distanceContainer.style.display = "none";
 
+    // Clear all existing rows from the results panel
     weaponStatsRows.replaceChildren();
+    // Update the selected weapon text
     weaponTitle.textContent = melee.name;
 
     let grouped = new Map();
     for (let [label, value] of Object.entries(melee)) {
-        if (value === null) continue;
-        if (label === "name") continue;
-        if (label === "type") continue;
+        if (value === null) continue; // Ignore any null values
+        if (label === "name" || label === "type") continue; // These are displayed elsewhere already
 
         if (label.startsWith("light")) {
+            // If the label starts with 'light' then assume it will have a corresponding 'charged' value.
+            // Remember this value until the matching 'charged' value is found.
             grouped.set(label.substring(5), value);
             continue;
         } else if (label.startsWith("charged")) {
-            label = label.substring(7);
+            // If the label starts with 'charged' then assume it had a corresponding 'light' value.
+            // Note that this method assumes 'light' values are always above the corresponding 'charged' value in the
+            // json data.
+            label = label.substring(7); // don't display the 'charged' part of the label, only the relevant part
+            // Get the 'light' value from earlier
             let light = grouped.get(label);
+            // If a 'light' value was found, then set the value variable as "lightValue - chargedValue"
             if (light !== value) value = light + " - " + value;
         }
 
+        // Convert the label from camel case to sentence case to make it look better when displayed
         const niceLabel = label.replace(/([A-Z])/g, " $1").replace(/^./, c => c.toUpperCase());
 
+        // Create the new row for this stat
         createStatsRow(weaponStatsRows, niceLabel, value);
     }
 
+    // Update the results panel with the new information
     updateResults();
 }
 
+/**
+ * Called when the user changes the selected enemy.
+ * This function will clear and regenerate the entire results panel.
+ * This function takes the json object directly from enemies.json, and uses it as-is (does NOT convert it).
+ * @param enemy The object for this enemy, as represented in enemies.json.
+ */
 function onChangeEnemy(enemy) {
     activeEnemy = enemy;
 
+    // Clear all existing rows from the results panel
     enemyStatsRows.replaceChildren();
+    // Update the selected enemy text
     enemyTitle.textContent = enemy.name;
 
     for (const [label, value] of Object.entries(enemy)) {
-        if (value === null) continue;
-        if (label === "name" || label === "hasHead") continue;
-        if (label === "backMultiplier" && value === 1) continue;
-        if (label === "precisionMultiplier" && value === 1) continue;
-        if (label === "hasTumors") continue;
+        if (value === null) continue; // Ignore any null values
+        if (label === "name") continue; // This is displayed elsewhere already
+        if (label === "backMultiplier" && value === 1) continue; // If the stagger multiplier is 1, then don't display anything for it
+        if (label === "precisionMultiplier" && value === 1) continue; // If the precision multiplier is 1, then don't display anything for it
+        if (label === "hasTumors" || label === "hasHead") continue; // These are only used for deciding what to display
 
+        // Convert the label from camel case to sentence case to make it look better when displayed
         const niceLabel = label.replace(/([A-Z])/g, " $1").replace(/^./, c => c.toUpperCase());
 
+        // Create the new row for this stat
         createStatsRow(enemyStatsRows, niceLabel, value);
     }
 
+    // Update the results panel with the new information
     updateResults();
 }
 
+/**
+ * Adds a new row to the results panel. The color of the text in the row will be set to the given color value.
+ * @param labelText The label of the row (displayed on the left; first column).
+ * @param valueText The value to be displayed (second column).
+ * @param hitsToKill Additional text to be displayed (displayed on the right; third column).
+ * @param color The color to be used for this row. Generally, one of ONESHOT_COLOR, STAGGER_COLOR, or DAMAGE_RANGE_COLOR
+ */
 function createResultsRow(labelText, valueText, hitsToKill = "", color = null) {
     const row = document.createElement("div");
     row.className = "resultsRow";
@@ -231,14 +314,23 @@ function createResultsRow(labelText, valueText, hitsToKill = "", color = null) {
     resultsContainer.appendChild(row);
 }
 
+/**
+ * Updates the results panel to contain the new information. Will redo all relevant calculations based on the selected
+ * weapon and enemy, or will do nothing if either is null.
+ */
 function updateResults() {
+    // If either are null, then no data can be created, so don't do anything.
     if (activeEnemy == null || activeWeapon == null) return;
 
+    // Clear all existing results rows.
     resultsContainer.replaceChildren();
 
+    // A booster value of, 17%, for example, corresponds to 1.17x multiplier
     const boosterMultiplier = Number(boosterSlider.value) + 1;
 
+    // If the active weapon is a Gun, then gun-related information needs to be displayed.
     if (activeWeapon instanceof Gun) {
+        // Perform calculations for the results panel.
         const distance = Number(distanceSlider.value);
         let baseDamageDist = activeWeapon.getDamage(distance, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, false, false, boosterMultiplier);
         let backDamageDist = activeWeapon.getDamage(distance, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, false, true, boosterMultiplier);
@@ -253,6 +345,7 @@ function updateResults() {
         const headDamageDistStag = activeWeapon.getDamage(distance, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, true, false, boosterMultiplier, true);
         const occiputDamageDistStag = activeWeapon.getDamage(distance, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, true, true, boosterMultiplier, true);
 
+        // If the enemy has armor over its entire body excluding the precision points, then multiply all base/back damage by the armor value.
         if (activeEnemy.armorMultiplier !== null && activeEnemy.wholeBodyArmor === true) {
             baseDamageDist = (baseDamageDist * activeEnemy.armorMultiplier).toFixed(2);
             backDamageDist = (backDamageDist * activeEnemy.armorMultiplier).toFixed(2);
@@ -262,6 +355,7 @@ function updateResults() {
             backDamageDistStag = (backDamageDistStag * activeEnemy.armorMultiplier).toFixed(2);
         }
 
+        // Damage to each hit zone based on the variable distance.
         createResultsRow("Base Damage", baseDamageDist, Math.ceil(activeEnemy.health / baseDamageDist) + " hit(s) to kill");
         if (activeEnemy.armorMultiplier !== null && activeEnemy.wholeBodyArmor === false) {
             createResultsRow("Base Armor Damage", (baseDamageDist * activeEnemy.armorMultiplier).toFixed(2), Math.ceil(activeEnemy.health / (baseDamageDist * activeEnemy.armorMultiplier)) + " hit(s) to kill");
@@ -278,6 +372,8 @@ function updateResults() {
         if ((activeEnemy.hasHead || activeEnemy.hasTumors) && activeEnemy.backMultiplier !== null) {
             createResultsRow((activeEnemy.hasTumors ? "Back Tumor" : "Occiput") + " Damage", occiputDamageDist, Math.ceil(activeEnemy.health / occiputDamageDist) + " hit(s) to kill");
         }
+
+        // The distance at which a weapon can oneshot an enemy to each hit zone
         if (baseDamageSR >= activeEnemy.health) {
             const baseOneshotDistance = activeWeapon.getOneshotDistance(activeEnemy.health, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, false, false, boosterMultiplier);
             createResultsRow("Base Oneshot Distance", baseOneshotDistance + "m", "", ONESHOT_COLOR);
@@ -294,6 +390,8 @@ function updateResults() {
             const occiputOneshotDistance = activeWeapon.getOneshotDistance(activeEnemy.health, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, true, true, boosterMultiplier);
             createResultsRow((activeEnemy.hasTumors ? "Back Tumor" : "Occiput") + " Oneshot Distance", occiputOneshotDistance + "m", "", ONESHOT_COLOR);
         }
+
+        // Stagger damage to each hit zone based on the variable distance (only if this enemy can be staggered).
         if (activeEnemy.staggerHp !== null) {
             createResultsRow("Base Stagger Damage", baseDamageDistStag, Math.ceil(activeEnemy.staggerHp / baseDamageDistStag) + " hit(s) to stagger", STAGGER_COLOR);
             if (activeEnemy.armorMultiplier !== null && activeEnemy.wholeBodyArmor === false) {
@@ -313,6 +411,9 @@ function updateResults() {
             }
         }
     } else {
+        // The weapon is a melee, so melee-related information is displayed.
+
+        // Perform all calculations for the results panel.
         const charge = Number(chargeSlider.value);
         let baseDamage = activeWeapon.getDamage(charge, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, false, false, false, boosterMultiplier);
         let backDamage = activeWeapon.getDamage(charge, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, false, true, false, boosterMultiplier);
@@ -339,6 +440,7 @@ function updateResults() {
         const headDamageStag = activeWeapon.getDamage(charge, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, true, false, false, boosterMultiplier, true);
         const occiputDamageStag = activeWeapon.getDamage(charge, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, true, true, false, boosterMultiplier, true);
 
+        // If the enemy has armor over its entire body excluding the precision points, then multiply all base/back damage by the armor value.
         if (activeEnemy.armorMultiplier !== null && activeEnemy.wholeBodyArmor === true) {
             baseDamage = (baseDamage * activeEnemy.armorMultiplier).toFixed(2);
             backDamage = (baseDamage * activeEnemy.armorMultiplier).toFixed(2);
@@ -355,6 +457,7 @@ function updateResults() {
             backDamageStag = (backDamageStag * activeEnemy.armorMultiplier).toFixed(2);
         }
 
+        // Damage to each hit zone based on the variable charge.
         if (activeWeapon.cSleepMul !== 1) {
             createResultsRow("Base Damage", baseDamage + " (" + baseDamageSleep + " sleeping)", Math.ceil(activeEnemy.health / baseDamage) + " hit(s) to kill");
             if (activeEnemy.armorMultiplier !== null && activeEnemy.wholeBodyArmor === false) {
@@ -393,6 +496,8 @@ function updateResults() {
                 createResultsRow((activeEnemy.hasTumors ? "Back Tumors" : "Occiput") + " Damage", occiputDamage, Math.ceil(activeEnemy.health / occiputDamage) + " hit(s) to kill");
             }
         }
+
+        // Damage ranges (light attack to charged) for each hit zone.
         createResultsRow("Base Damage Range", baseDamageL + "-" + baseDamageC, "", DAMAGE_RANGE_COLOR);
         if (activeEnemy.armorMultiplier !== null && activeEnemy.wholeBodyArmor === false) {
             createResultsRow("Base Armor Damage Range", (baseDamageL * activeEnemy.armorMultiplier).toFixed(2) + "-" + (baseDamageC * activeEnemy.armorMultiplier).toFixed(2), "", DAMAGE_RANGE_COLOR);
@@ -409,6 +514,8 @@ function updateResults() {
         if ((activeEnemy.hasHead || activeEnemy.hasTumors) && activeEnemy.backMultiplier !== null) {
             createResultsRow((activeEnemy.hasTumors ? "Back Tumor" : "Occiput") + " Damage Range", occiputDamageL + "-" + occiputDamageC, "", DAMAGE_RANGE_COLOR);
         }
+
+        // The charge required to oneshot this enemy to each hit zone
         if (baseDamageC >= activeEnemy.health || baseDamageSleepC >= activeEnemy.health) {
             const baseOneshotCharge = activeWeapon.getOneshotCharge(activeEnemy.health, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, false, false, false, boosterMultiplier);
             if (activeWeapon.cSleepMul !== 1) {
@@ -477,6 +584,8 @@ function updateResults() {
                 createResultsRow((activeEnemy.hasTumors ? "Back Tumor" : "Occiput") + " Oneshot Charge", (occiputOneshotCharge * 100).toFixed(2) + "%", "", ONESHOT_COLOR);
             }
         }
+
+        // Stagger damage to each hit zone based on the variable distance (only if this enemy can be staggered).
         if (activeEnemy.staggerHp !== null) {
             createResultsRow("Base Stagger Damage", baseDamageStag, Math.ceil(activeEnemy.staggerHp / baseDamageStag) + " hit(s) to stagger", STAGGER_COLOR);
             if (activeEnemy.armorMultiplier !== null && activeEnemy.wholeBodyArmor === false) {
