@@ -35,16 +35,19 @@ const STAGGER_COLOR = "#5496ff"; // used for stagger damage
 const DAMAGE_RANGE_COLOR = "#6effa3"; // used for the range of damages based on charge/distance
 
 /**
- * Populates the dropdowns for both weapons and enemies based on the contents of enemies.json, melee.json, and guns.json.
+ * Populates the dropdowns for both weapons and enemies based on the contents of enemies.json, melee.json, guns.json,
+ * and sentries.json.
  * The enemies dropdown is sorted based on their position in enemies.json
- * The weapons dropdown puts melees at the top in alphabetical order, and then guns also in alphabetical order.
+ * The weapons dropdown puts melees at the top, then guns, then sentries, with each group in alphabetical order.
  * These files are read asynchronously, and then onChangeWeapon and onChangeEnemy are called to show the initial results.
- * After this is run, the selected enemy will be the Striker, and the selected weapon will be the Bat. as these are the
- * first items in their respective dropdowns.
+ * After this is run, the selected enemy will be the Striker, and the selected weapon will be the Bat as these are the
+ * first options in their respective dropdowns.
  */
 function createDropdowns() {
+    // Start by loading the melee weapons, since these are at the top of the weapons list
     loadJson("melee.json").then(melees => {
         melees.sort((a, b) => a.name.localeCompare(b.name)).forEach(melee => {
+            // Create the new option
             const option = document.createElement("option");
             melee.type = "melee";
             option.value = melee.name;
@@ -52,46 +55,62 @@ function createDropdowns() {
             option.info = melee;
             weaponSelect.appendChild(option);
         });
+        // Add a listener for weapon changes. This *will* be called when anything from the dropdown is selected, it
+        // will not do anything unless the selected weapon was a melee.
         weaponSelect.addEventListener("change", () => {
             let selected = weaponSelect.selectedOptions[0].textContent;
             let weapon = melees.find(m => m.name === selected);
             if (weapon !== undefined) onChangeWeaponMelee(weapon);
         });
+        // Set the active weapon to the first melee (the Bat)
         onChangeWeaponMelee(melees[0]);
+
+        // Next, load the guns, since these are next in the weapons list.
         loadJson("guns.json").then(guns => {
             guns.sort((a, b) => a.name.localeCompare(b.name)).forEach(gun => {
+                // Create the new option
                 const option = document.createElement("option");
                 gun.type = "gun";
                 option.value = gun.name;
                 option.textContent = gun.name;
                 weaponSelect.appendChild(option);
             });
+            // Add a listener for weapon changes. This *will* be called when anything from the dropdown is selected, it
+            // will not do anything unless the selected weapon was a gun.
             weaponSelect.addEventListener("change", () => {
                 let selected = weaponSelect.selectedOptions[0].textContent;
                 let weapon = guns.find(g => g.name === selected);
                 if (weapon !== undefined) onChangeWeaponGun(weapon);
             });
+            // Next, load the sentries, since these are at the bottom of the weapons list
             loadJson("sentries.json").then(sentries => {
                 sentries.sort((a, b) => a.name.localeCompare(b.name)).forEach(sentry => {
+                    // Create the new option
                     const option = document.createElement("option");
                     sentry.type = "sentry";
                     option.value = sentry.name;
                     option.textContent = sentry.name;
                     weaponSelect.appendChild(option);
                 });
+                // Add a listener for weapon changes. This *will* be called when anything from the dropdown is selected,
+                // it will not do anything unless the selected weapon was a sentry, although sentries and guns are
+                // treated identically in this section of the code.
                 weaponSelect.addEventListener("change", () => {
                     let selected = weaponSelect.selectedOptions[0].textContent;
                     let weapon = sentries.find(g => g.name === selected);
                     if (weapon !== undefined) onChangeWeaponGun(weapon);
                 });
+                // Lastly, load the enemies.
                 loadJson("enemies.json").then(enemies => {
                     enemies.forEach(enemy => {
+                        // Create the new option
                         const option = document.createElement("option");
                         option.value = enemy.name;
                         option.textContent = enemy.name;
                         option.info = enemy;
                         enemySelect.appendChild(option);
                     });
+                    // Add a listener for enemy changes.
                     enemySelect.addEventListener("change", () => {
                         let selected = enemySelect.selectedOptions[0].textContent;
                         let enemy = enemies.find(e => e.name === selected);
