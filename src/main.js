@@ -36,7 +36,7 @@ const DAMAGE_RANGE_COLOR = "#6effa3"; // used for the range of damages based on 
 
 /**
  * Populates the dropdowns for both weapons and enemies based on the contents of enemies.json, melee.json, guns.json,
- * and sentries.json.
+ * and tools.json.
  * The enemies dropdown is sorted based on their position in enemies.json
  * The weapons dropdown puts melees at the top, then guns, then sentries, with each group in alphabetical order.
  * These files are read asynchronously, and then onChangeWeapon and onChangeEnemy are called to show the initial results.
@@ -82,12 +82,12 @@ function createDropdowns() {
                 let weapon = guns.find(g => g.name === selected);
                 if (weapon !== undefined) onChangeWeaponGun(weapon);
             });
-            // Next, load the sentries, since these are at the bottom of the weapons list
-            loadJson("sentries.json").then(sentries => {
-                sentries.sort((a, b) => a.name.localeCompare(b.name)).forEach(sentry => {
+            // Next, load the tools, since these are at the bottom of the weapons list
+            loadJson("tools.json").then(sentries => {
+                sentries.forEach(sentry => {
                     // Create the new option
                     const option = document.createElement("option");
-                    sentry.type = "sentry";
+                    sentry.type = "tool";
                     option.value = sentry.name;
                     option.textContent = sentry.name;
                     weaponSelect.appendChild(option);
@@ -200,11 +200,11 @@ function setAllowedDistance(start, end) {
 }
 
 /**
- * Called when the user changes the selected weapon and the new weapon is a gun (main or special weapon) or a sentry.
+ * Called when the user changes the selected weapon and the new weapon is a gun (main or special weapon) or a tool.
  * This function will clear and regenerate the entire results panel, and will update the distance slider to the new
  * falloff start and end values.
- * This function takes the json object directly from guns.json or sentries.json, and will convert it into a Gun object.
- * @param gun The object for this gun/sentry, as represented in guns.json or sentries.json.
+ * This function takes the json object directly from guns.json or tools.json, and will convert it into a Gun object.
+ * @param gun The object for this gun/tool, as represented in guns.json or tools.json.
  */
 function onChangeWeaponGun(gun) {
     // Convert the json object into a Gun object.
@@ -217,11 +217,12 @@ function onChangeWeaponGun(gun) {
     // Clear all existing rows from the results panel
     weaponStatsRows.replaceChildren();
     // Update the selected weapon text
-    weaponTitle.textContent = gun.name + " (" + gun.technicalName + ")";
+    weaponTitle.textContent = gun.name;
+    if (gun.technicalName !== null) weaponTitle.textContent += " (" + gun.technicalName + ")"
 
     for (const [label, value] of Object.entries(gun)) {
         if (value === null) continue; // Ignore any null values
-        if (label === "name" || label === "type" || label === "technicalName") continue; // These are displayed elsewhere already
+        if (label === "name" || label === "type" || label === "technicalName" || label === "hasBackDamage") continue; // These are displayed elsewhere already
         if (label === "staggerMultiplier" && value === 1) continue; // If the stagger multiplier is 1, then don't display anything for it
 
         // Convert the label from camel case to sentence case to make it look better when displayed
@@ -232,7 +233,12 @@ function onChangeWeaponGun(gun) {
     }
 
     // Update te allowed range on the distance slider
-    setAllowedDistance(gun.falloffStart, gun.falloffEnd);
+    if (gun.falloffStart === null || gun.falloffEnd === null) {
+        distanceContainer.style.display = "none";
+    } else {
+        distanceContainer.style.display = "block";
+        setAllowedDistance(gun.falloffStart, gun.falloffEnd);
+    }
 
     // Update the results panel with the new information
     updateResults();
@@ -240,7 +246,7 @@ function onChangeWeaponGun(gun) {
 
 /**
  * Called when the user changes the selected weapon and the new weapon is a melee.
- * This function will clear and regenerate the entire results panel.
+ * This function will clear and regenerate the entire stats panel.
  * This function takes the json object directly from melee.json, and will convert it into an actual Melee object.
  * @param melee The object for this melee, as represented in melee.json.
  */
@@ -291,7 +297,7 @@ function onChangeWeaponMelee(melee) {
 
 /**
  * Called when the user changes the selected enemy.
- * This function will clear and regenerate the entire results panel.
+ * This function will clear and regenerate the entire stats panel.
  * This function takes the json object directly from enemies.json, and uses it as-is (does NOT convert it).
  * @param enemy The object for this enemy, as represented in enemies.json.
  */
@@ -308,7 +314,7 @@ function onChangeEnemy(enemy) {
         if (label === "name") continue; // This is displayed elsewhere already
         if (label === "backMultiplier" && value === 1) continue; // If the stagger multiplier is 1, then don't display anything for it
         if (label === "precisionMultiplier" && value === 1) continue; // If the precision multiplier is 1, then don't display anything for it
-        if (label === "hasTumors" || label === "hasHead") continue; // These are only used for deciding what to display
+        if (label === "hasTumors" || label === "hasHead" || label === "wholeBodyArmor") continue; // These are only used for deciding what to display
 
         // Convert the label from camel case to sentence case to make it look better when displayed
         const niceLabel = label.replace(/([A-Z])/g, " $1").replace(/^./, c => c.toUpperCase());
@@ -408,21 +414,23 @@ function updateResults() {
         }
 
         // The distance at which a weapon can oneshot an enemy to each hit zone
-        if (baseDamageSR >= activeEnemy.health) {
-            const baseOneshotDistance = activeWeapon.getOneshotDistance(activeEnemy.health, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, false, false, boosterMultiplier);
-            createResultsRow("Base Oneshot Distance", baseOneshotDistance + "m", "", ONESHOT_COLOR);
-        }
-        if (activeWeapon.hasBackDamage && activeEnemy.backMultiplier !== 1 && activeEnemy.backMultiplier !== null && backDamageSR >= activeEnemy.health) {
-            const backOneshotDistance = activeWeapon.getOneshotDistance(activeEnemy.health, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, false, true, boosterMultiplier);
-            createResultsRow("Back Oneshot Distance", backOneshotDistance + "m", "", ONESHOT_COLOR);
-        }
-        if ((activeEnemy.hasHead || activeEnemy.hasTumors) && headDamageSR >= activeEnemy.health) {
-            const headOneshotDistance = activeWeapon.getOneshotDistance(activeEnemy.health, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, true, false, boosterMultiplier);
-            createResultsRow((activeEnemy.hasHead ? "Head" : "Tumor") + " Oneshot Distance", headOneshotDistance + "m", "", ONESHOT_COLOR);
-        }
-        if (activeWeapon.hasBackDamage && (activeEnemy.hasHead || activeEnemy.hasTumors) && activeEnemy.backMultiplier !== null && occiputDamageSR >= activeEnemy.health) {
-            const occiputOneshotDistance = activeWeapon.getOneshotDistance(activeEnemy.health, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, true, true, boosterMultiplier);
-            createResultsRow((activeEnemy.hasTumors ? "Back Tumor" : "Occiput") + " Oneshot Distance", occiputOneshotDistance + "m", "", ONESHOT_COLOR);
+        if (activeWeapon.falloffStart !== null && activeWeapon.falloffEnd !== null) {
+            if (baseDamageSR >= activeEnemy.health) {
+                const baseOneshotDistance = activeWeapon.getOneshotDistance(activeEnemy.health, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, false, false, boosterMultiplier);
+                createResultsRow("Base Oneshot Distance", baseOneshotDistance + "m", "", ONESHOT_COLOR);
+            }
+            if (activeWeapon.hasBackDamage && activeEnemy.backMultiplier !== 1 && activeEnemy.backMultiplier !== null && backDamageSR >= activeEnemy.health) {
+                const backOneshotDistance = activeWeapon.getOneshotDistance(activeEnemy.health, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, false, true, boosterMultiplier);
+                createResultsRow("Back Oneshot Distance", backOneshotDistance + "m", "", ONESHOT_COLOR);
+            }
+            if ((activeEnemy.hasHead || activeEnemy.hasTumors) && headDamageSR >= activeEnemy.health) {
+                const headOneshotDistance = activeWeapon.getOneshotDistance(activeEnemy.health, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, true, false, boosterMultiplier);
+                createResultsRow((activeEnemy.hasHead ? "Head" : "Tumor") + " Oneshot Distance", headOneshotDistance + "m", "", ONESHOT_COLOR);
+            }
+            if (activeWeapon.hasBackDamage && (activeEnemy.hasHead || activeEnemy.hasTumors) && activeEnemy.backMultiplier !== null && occiputDamageSR >= activeEnemy.health) {
+                const occiputOneshotDistance = activeWeapon.getOneshotDistance(activeEnemy.health, activeEnemy.precisionMultiplier, activeEnemy.backMultiplier, true, true, boosterMultiplier);
+                createResultsRow((activeEnemy.hasTumors ? "Back Tumor" : "Occiput") + " Oneshot Distance", occiputOneshotDistance + "m", "", ONESHOT_COLOR);
+            }
         }
 
         // Stagger damage to each hit zone based on the variable distance (only if this enemy can be staggered).

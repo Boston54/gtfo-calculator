@@ -1,6 +1,6 @@
 [
   {
-    "slot": "Sentry",
+    "slot": "Tool",
     "technicalName": "AutoTek 51 RSG",
     "name": "Sniper Sentry",
     "damage": 48.1,
@@ -11,7 +11,7 @@
     "falloffEnd": 100
   },
   {
-    "slot": "Sentry",
+    "slot": "Tool",
     "technicalName": "Mechatronic SGB3",
     "name": "Burst Sentry",
     "damage": 2.01,
@@ -22,7 +22,7 @@
     "falloffEnd": 40
   },
   {
-    "slot": "Sentry",
+    "slot": "Tool",
     "technicalName": "Mechatronic B5 LFR",
     "name": "Shotgun Sentry",
     "damage": 15.05,
@@ -33,7 +33,7 @@
     "falloffEnd": 40
   },
   {
-    "slot": "Sentry",
+    "slot": "Tool",
     "technicalName": "Rad Labs Meduza",
     "name": "HEL Auto Sentry",
     "damage": 0.8,
@@ -42,5 +42,27 @@
     "hasBackDamage": true,
     "falloffStart": 10,
     "falloffEnd": 70
+  },
+  {
+    "slot": "Tool",
+    "technicalName": "Krieger 04",
+    "name": "Mine Deployer",
+    "damage": 50.0,
+    "staggerMultiplier": 1,
+    "precisionMultiplier": 1,
+    "hasBackDamage": false,
+    "falloffStart": null,
+    "falloffEnd": null
+  },
+  {
+    "slot": "Consumable",
+    "technicalName": null,
+    "name": "Explosive Tripmine",
+    "damage": 35.0,
+    "staggerMultiplier": 1,
+    "precisionMultiplier": 1,
+    "hasBackDamage": false,
+    "falloffStart": null,
+    "falloffEnd": null
   }
 ]

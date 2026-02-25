@@ -18,6 +18,7 @@ export class Gun {
      * @returns {number} The scaled damage at this range.
      */
     getBaseDamageForDistance(distance) {
+        if (this.falloffStart === null || this.falloffEnd === null) return this.damage;
         if (distance <= this.falloffStart) return this.damage;
         if (distance >= this.falloffEnd) return this.damage * 0.1;
         let falloff = 1 - (distance - this.falloffStart) / (this.falloffEnd - this.falloffStart);
