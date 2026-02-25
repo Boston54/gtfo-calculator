@@ -51,8 +51,8 @@
     "staggerMultiplier": 1,
     "precisionMultiplier": 1,
     "hasBackDamage": false,
-    "falloffStart": null,
-    "falloffEnd": null
+    "falloffStart": "mine_deployer",
+    "falloffEnd": "mine_deployer"
   },
   {
     "slot": "Consumable",
@@ -62,7 +62,7 @@
     "staggerMultiplier": 1,
     "precisionMultiplier": 1,
     "hasBackDamage": false,
-    "falloffStart": null,
-    "falloffEnd": null
+    "falloffStart": "explosive_tripmine",
+    "falloffEnd": "explosive_tripmine"
   }
 ]

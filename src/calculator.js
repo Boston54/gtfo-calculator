@@ -18,12 +18,28 @@ export class Gun {
      * @returns {number} The scaled damage at this range.
      */
     getBaseDamageForDistance(distance) {
-        if (this.falloffStart === null || this.falloffEnd === null) return this.damage;
-        if (distance <= this.falloffStart) return this.damage;
-        if (distance >= this.falloffEnd) return this.damage * 0.1;
-        let falloff = 1 - (distance - this.falloffStart) / (this.falloffEnd - this.falloffStart);
-        if (falloff < 0.1) falloff = 0.1;
-        return this.damage * falloff;
+        if (typeof this.falloffStart === "string") {
+            if (this.falloffStart === "explosive_tripmine") {
+                if (distance < 2.5) return this.damage;
+                if (distance >= 12) return 10;
+                let falloff = (distance - 2.5) / (12 - 2.5);
+                return this.damage + (10 - this.damage) * falloff;
+            } else if (this.falloffStart === "mine_deployer") {
+                if (distance < 3) return this.damage;
+                if (distance >= 15) return 15;
+                let falloff = (distance - 3) / (15 - 3);
+                return this.damage + (15 - this.damage) * falloff;
+            } else {
+                return "unknown data type " + this.falloffStart;
+            }
+        } else {
+            if (this.falloffStart === null || this.falloffEnd === null) return this.damage;
+            if (distance <= this.falloffStart) return this.damage;
+            if (distance >= this.falloffEnd) return this.damage * 0.1;
+            let falloff = 1 - (distance - this.falloffStart) / (this.falloffEnd - this.falloffStart);
+            if (falloff < 0.1) falloff = 0.1;
+            return this.damage * falloff;
+        }
     }
 
     /**

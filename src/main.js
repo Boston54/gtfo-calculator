@@ -199,6 +199,14 @@ function setAllowedDistance(start, end) {
     distanceLabel.textContent = `Distance: ${allowedDistanceMin}m`;
 }
 
+function setAllowedDistanceCustom(custom_type) {
+    if (custom_type === "mine_deployer") {
+        setAllowedDistance(3, 15);
+    } else if (custom_type === "explosive_tripmine") {
+        setAllowedDistance(2.5, 12);
+    }
+}
+
 /**
  * Called when the user changes the selected weapon and the new weapon is a gun (main or special weapon) or a tool.
  * This function will clear and regenerate the entire results panel, and will update the distance slider to the new
@@ -222,8 +230,9 @@ function onChangeWeaponGun(gun) {
 
     for (const [label, value] of Object.entries(gun)) {
         if (value === null) continue; // Ignore any null values
-        if (label === "name" || label === "type" || label === "technicalName" || label === "hasBackDamage") continue; // These are displayed elsewhere already
+        if (label === "name" || label === "type" || label === "technicalName") continue; // These are displayed elsewhere already
         if (label === "staggerMultiplier" && value === 1) continue; // If the stagger multiplier is 1, then don't display anything for it
+        if (label === "hasBackDamage" || (label === "falloffStart" && typeof value === "string") || (label === "falloffEnd" && typeof value === "string")) continue;
 
         // Convert the label from camel case to sentence case to make it look better when displayed
         const niceLabel = label.replace(/([A-Z])/g, " $1").replace(/^./, c => c.toUpperCase());
@@ -235,6 +244,9 @@ function onChangeWeaponGun(gun) {
     // Update te allowed range on the distance slider
     if (gun.falloffStart === null || gun.falloffEnd === null) {
         distanceContainer.style.display = "none";
+    } else if (typeof gun.falloffStart === "string") {
+        distanceContainer.style.display = "block";
+        setAllowedDistanceCustom(gun.falloffStart);
     } else {
         distanceContainer.style.display = "block";
         setAllowedDistance(gun.falloffStart, gun.falloffEnd);
