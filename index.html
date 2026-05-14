@@ -7,21 +7,25 @@
 </head>
 <body>
 <div>
-  <h1 class="title">GTFO Damage Calculator</h1>
+  <h1 class="title">GTFO Damage Calculator v2.0</h1>
   <h2 class="subtitle">by Boston54</h2>
+</div>
+<div class="namespaceContainer">
+  <label for="namespaceSelect">Datablock Set</label>
+  <select id="namespaceSelect" class="namespaceSelect"></select>
 </div>
 <main id="app">
   <div class="statsContainer">
     <div class="statsPanel">
       <label for="enemySelect">Enemy</label>
-      <select id="enemySelect"></select>
+      <select id="enemySelect" class="dataSelect"></select>
       <h1 class="title">Enemy Details</h1>
       <h2 id="enemyTitle" class="subtitle">No Enemy Selected</h2>
       <div id="enemyStatsRows" class="statsRows"></div>
     </div>
     <div class="statsPanel">
       <label for="weaponSelect">Weapon</label>
-      <select id="weaponSelect"></select>
+      <select id="weaponSelect" class="dataSelect"></select>
       <h1 class="title">Weapon Details</h1>
       <h2 id="weaponTitle" class="subtitle">No Weapon Selected</h2>
       <div id="weaponStatsRows" class="statsRows"></div>
@@ -45,6 +49,9 @@
   </div>
   <br>
   <h2 class="subtitle" style="margin: auto 0">For any issues or suggestions, contact me (boston54) via the GTFO discord.</h2>
+  <br>
+  <h2 class="subtitle" style="margin: auto 0">If you would like your mod to be featured on this website, feel free to contact me and we can sort that out together.</h2>
+  <h2 class="subtitle" style="margin: auto 0">Note that this website will not support weapons or enemies whose stats are implemented through any means other than datablocks.</h2>
 </main>
 <script type="module" src="./src/main.js"></script>
 </body>

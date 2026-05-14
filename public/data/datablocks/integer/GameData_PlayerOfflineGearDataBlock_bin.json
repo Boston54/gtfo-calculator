@@ -1,0 +1,422 @@
+{
+  "Headers": [],
+  "Blocks": [
+    {
+      "Type": 1,
+      "GearJSON": "{\"Ver\":1,\"Name\":\"Shelling Compact\",\"Packet\":{\"Comps\":{\"Length\":12,\"a\":{\"c\":2,\"v\":8},\"b\":{\"c\":3,\"v\":108},\"c\":{\"c\":4,\"v\":8},\"d\":{\"c\":5,\"v\":56},\"e\":{\"c\":6,\"v\":1},\"f\":{\"c\":7,\"v\":2},\"g\":{\"c\":12,\"v\":88},\"h\":{\"c\":16,\"v\":31},\"i\":{\"c\":19,\"v\":18},\"j\":{\"c\":23,\"v\":8},\"k\":{\"c\":25,\"v\":3}},\"publicName\":{\"data\":\"Shelling Compact-5\"}}}",
+      "name": "PistolSemi",
+      "internalEnabled": true,
+      "persistentID": 3
+    },
+    {
+      "Type": 1,
+      "GearJSON": "{\"Ver\":1,\"Name\":\"Bataldo Model 6\",\"Packet\":{\"Comps\":{\"Length\":12,\"a\":{\"c\":1,\"v\":1},\"b\":{\"c\":2,\"v\":23},\"c\":{\"c\":3,\"v\":108},\"d\":{\"c\":4,\"v\":20},\"e\":{\"c\":5,\"v\":29},\"f\":{\"c\":6,\"v\":29},\"g\":{\"c\":7,\"v\":2},\"h\":{\"c\":12,\"v\":78},\"i\":{\"c\":16,\"v\":17},\"j\":{\"c\":19,\"v\":14},\"k\":{\"c\":25,\"v\":3}},\"publicName\":{\"data\":\"Bataldo Model 6\"}}}",
+      "name": "RevolverHEL",
+      "internalEnabled": true,
+      "persistentID": 47
+    },
+    {
+      "Type": 1,
+      "GearJSON": "{\"Ver\":1,\"Name\":\"Shelling Recon G4\",\"Packet\":{\"Comps\":{\"Length\":13,\"a\":{\"c\":1,\"v\":2},\"b\":{\"c\":2,\"v\":500},\"c\":{\"c\":3,\"v\":108},\"d\":{\"c\":4,\"v\":2},\"e\":{\"c\":5,\"v\":44},\"f\":{\"c\":6,\"v\":1},\"g\":{\"c\":7,\"v\":1},\"h\":{\"c\":12,\"v\":73},\"i\":{\"c\":16,\"v\":12},\"j\":{\"c\":19,\"v\":29},\"k\":{\"c\":23,\"v\":5},\"l\":{\"c\":25,\"v\":3}},\"publicName\":{\"data\":\"Shelling Recon G4\"}}}",
+      "name": "HeavyMachinepistol",
+      "internalEnabled": true,
+      "persistentID": 74
+    },
+    {
+      "Type": 1,
+      "GearJSON": "{\"Ver\":1,\"Name\":\"Kovac Sledgehammer\",\"Packet\":{\"Comps\":{\"Length\":8,\"a\":{\"c\":2,\"v\":14},\"b\":{\"c\":3,\"v\":100},\"c\":{\"c\":4,\"v\":13},\"d\":{\"c\":44,\"v\":11},\"e\":{\"c\":46,\"v\":12},\"f\":{\"c\":48,\"v\":6},\"g\":{\"c\":50,\"v\":4}},\"MatTrans\":{\"tDecalA\":{\"scale\":0.1},\"tDecalB\":{\"scale\":0.1},\"tPattern\":{\"scale\":0.1}},\"publicName\":{\"data\":\"Sledgehammer\"}}}",
+      "name": "Sledgehammer",
+      "internalEnabled": true,
+      "persistentID": 9
+    },
+    
+    {
+      "Type": 1,
+      "GearJSON": "{\"Ver\":1,\"Name\":\"Attroc Avenger\",\"Packet\":{\"Comps\":{\"Length\":8,\"a\":{\"c\":2,\"v\":14},\"b\":{\"c\":3,\"v\":100},\"c\":{\"c\":4,\"v\":13},\"d\":{\"c\":44,\"v\":80},\"e\":{\"c\":46,\"v\":4},\"f\":{\"c\":48,\"v\":10},\"g\":{\"c\":50,\"v\":6}},\"publicName\":{\"data\":\"Attroc Avenger\"}}}",
+      "name": "Sledgehammer",
+      "internalEnabled": true,
+      "persistentID": 11
+    },
+    {
+      "Type": 1,
+      "GearJSON": "{\"Ver\":1,\"Name\":\"BIG MAUL\",\"Packet\":{\"Comps\":{\"Length\":8,\"a\":{\"c\":2,\"v\":14},\"b\":{\"c\":3,\"v\":100},\"c\":{\"c\":4,\"v\":13},\"d\":{\"c\":44,\"v\":81},\"e\":{\"c\":46,\"v\":5},\"f\":{\"c\":48,\"v\":2},\"g\":{\"c\":50,\"v\":5}},\"publicName\":{\"data\":\"BIG MAUL\"}}}",
+      "name": "Sledgehammer",
+      "internalEnabled": true,
+      "persistentID": 101
+    },
+    {
+      "Type": 1,
+      "GearJSON": "{\"Ver\":1,\"Name\":\"Attroc Buster\",\"Packet\":{\"Comps\":{\"Length\":8,\"a\":{\"c\":2,\"v\":14},\"b\":{\"c\":3,\"v\":100},\"c\":{\"c\":4,\"v\":13},\"d\":{\"c\":44,\"v\":8},\"e\":{\"c\":46,\"v\":9},\"f\":{\"c\":48,\"v\":10},\"g\":{\"c\":50,\"v\":8}},\"publicName\":{\"data\":\"Santonian Mallet\"}}}",
+      "name": "Sledgehammer_Potato_Smasher",
+      "internalEnabled": true,
+      "persistentID": 69
+    },
+    {
+      "Type": "StandardInventory",
+      "GearJSON": "{\"Ver\":1,\"Name\":\"Maul\",\"Packet\":{\"Comps\":{\"Length\":8,\"a\":{\"c\":2,\"v\":14},\"b\":{\"c\":3,\"v\":100},\"c\":{\"c\":4,\"v\":13},\"d\":{\"c\":44,\"v\":3},\"e\":{\"c\":46,\"v\":5},\"f\":{\"c\":48,\"v\":2},\"g\":{\"c\":50,\"v\":5}},\"MatTrans\":{\"tDecalA\":{\"scale\":0.1},\"tDecalB\":{\"scale\":0.1},\"tPattern\":{\"scale\":0.1}},\"publicName\":{\"data\":\"Maul\"}}}",
+      "name": "Maul",
+      "internalEnabled": true,
+      "persistentID": 26
+    },
+    {
+      "Type": 1,
+      "GearJSON": "{\"Ver\":1,\"Name\":\"Santonian Mallet\",\"Packet\":{\"Comps\":{\"Length\":8,\"a\":{\"c\":2,\"v\":14},\"b\":{\"c\":3,\"v\":100},\"c\":{\"c\":4,\"v\":13},\"d\":{\"c\":44,\"v\":6},\"e\":{\"c\":46,\"v\":9},\"f\":{\"c\":48,\"v\":10},\"g\":{\"c\":50,\"v\":8}},\"MatTrans\":{\"tDecalA\":{\"scale\":0.1},\"tDecalB\":{\"scale\":0.1},\"tPattern\":{\"scale\":0.1}},\"publicName\":{\"data\":\"Mallet\"}}}",
+      "name": "Mallet",
+      "internalEnabled": true,
+      "persistentID": 27
+    },
+    {
+      "Type": 1,
+      "GearJSON": "{\"Ver\":1,\"Name\":\"MACO Gavel\",\"Packet\":{\"Comps\":{\"Length\":8,\"a\":{\"c\":2,\"v\":14},\"b\":{\"c\":3,\"v\":100},\"c\":{\"c\":4,\"v\":13},\"d\":{\"c\":44,\"v\":5},\"e\":{\"c\":46,\"v\":3},\"f\":{\"c\":48,\"v\":5},\"g\":{\"c\":50,\"v\":2}},\"MatTrans\":{\"tDecalA\":{\"scale\":0.1},\"tDecalB\":{\"scale\":0.1},\"tPattern\":{\"scale\":0.1}},\"publicName\":{\"data\":\"Gavel\"}}}",
+      "name": "Gavel",
+      "internalEnabled": true,
+      "persistentID": 28
+    },
+    {
+      "Type": 1,
+      "GearJSON": "{\"Ver\":1,\"Name\":\"Shelling Nano\",\"Packet\":{\"Comps\":{\"Length\":15,\"a\":{\"c\":1,\"v\":1},\"b\":{\"c\":2,\"v\":8},\"c\":{\"c\":3,\"v\":108},\"d\":{\"c\":4,\"v\":8},\"e\":{\"c\":5,\"v\":1},\"f\":{\"c\":6,\"v\":1},\"g\":{\"c\":7,\"v\":1},\"h\":{\"c\":8,\"v\":16},\"i\":{\"c\":9,\"v\":15},\"j\":{\"c\":10,\"v\":27},\"k\":{\"c\":11,\"v\":27},\"l\":{\"c\":12,\"v\":45},\"m\":{\"c\":19,\"v\":22},\"n\":{\"c\":25,\"v\":3}},\"MatTrans\":{\"tDecalA\":{\"position\":{\"x\":-0.098,\"y\":-0.07,\"normalized\":{\"x\":-0.813733459,\"y\":-0.5812382,\"magnitude\":1.0,\"sqrMagnitude\":1.0},\"magnitude\":0.120432548,\"sqrMagnitude\":0.014504},\"scale\":0.05},\"tDecalB\":{\"position\":{\"x\":-0.098,\"y\":-0.07,\"normalized\":{\"x\":-0.813733459,\"y\":-0.5812382,\"magnitude\":1.0,\"sqrMagnitude\":1.0},\"magnitude\":0.120432548,\"sqrMagnitude\":0.014504},\"scale\":0.04},\"tPattern\":{\"position\":{\"x\":-0.09,\"y\":-0.03,\"normalized\":{\"x\":-0.9486833,\"y\":-0.316227764,\"magnitude\":1.0,\"sqrMagnitude\":1.0},\"magnitude\":0.09486833,\"sqrMagnitude\":0.009000001},\"angle\":-90.0,\"scale\":0.1}},\"publicName\":{\"data\":\"Pistol Burst\"}}}",
+      "name": "PistolBurst",
+      "internalEnabled": false,
+      "persistentID": 67
+    },
+    {
+      "Type": 1,
+      "GearJSON": "{\"Ver\":1,\"Name\":\"Malatack TPX\",\"Packet\":{\"Comps\":{\"Length\":14,\"a\":{\"c\":1,\"v\":2},\"b\":{\"c\":2,\"v\":22},\"c\":{\"c\":3,\"v\":109},\"d\":{\"c\":4,\"v\":1},\"e\":{\"c\":5,\"v\":42},\"f\":{\"c\":6,\"v\":3},\"g\":{\"c\":7,\"v\":3},\"h\":{\"c\":12,\"v\":28},\"i\":{\"c\":16,\"v\":13},\"j\":{\"c\":19,\"v\":8},\"k\":{\"c\":21,\"v\":48},\"l\":{\"c\":23,\"v\":20},\"m\":{\"c\":25,\"v\":5}},\"publicName\":{\"data\":\"Malatack TPX\"}}}",
+      "name": "RifleHeavyAuto",
+      "internalEnabled": true,
+      "persistentID": 46
+    },
+    {
+      "Type": 1,
+      "GearJSON": "{\"Ver\":1,\"Name\":\"Hanaway KZ1 \",\"Packet\":{\"Comps\":{\"Length\":13,\"a\":{\"c\":2,\"v\":24},\"b\":{\"c\":3,\"v\":109},\"c\":{\"c\":4,\"v\":49},\"d\":{\"c\":5,\"v\":41},\"e\":{\"c\":6,\"v\":2},\"f\":{\"c\":7,\"v\":1},\"g\":{\"c\":12,\"v\":17},\"h\":{\"c\":16,\"v\":26},\"i\":{\"c\":19,\"v\":26},\"j\":{\"c\":21,\"v\":18},\"k\":{\"c\":23,\"v\":9},\"l\":{\"c\":25,\"v\":3}},\"publicName\":{\"data\":\"Hanaway KZ1 \"}}}",
+      "name": "Heavy_Burst_Rifle",
+      "internalEnabled": true,
+      "persistentID": 66
+    },
+    {
+      "Type": 1,
+      "GearJSON": "{\"Ver\":1,\"Name\":\"Bataldo Custom K330\",\"Packet\":{\"Comps\":{\"Length\":12,\"a\":{\"c\":2,\"v\":37},\"b\":{\"c\":3,\"v\":108},\"c\":{\"c\":4,\"v\":6},\"d\":{\"c\":5,\"v\":37},\"e\":{\"c\":6,\"v\":4},\"f\":{\"c\":7,\"v\":4},\"g\":{\"c\":12,\"v\":94},\"h\":{\"c\":16,\"v\":12},\"i\":{\"c\":19,\"v\":12},\"j\":{\"c\":21,\"v\":49},\"k\":{\"c\":25,\"v\":3}},\"publicName\":{\"data\":\"Bataldo Custom K330\"}}}",
+      "name": "ShotgunSlug",
+      "internalEnabled": true,
+      "persistentID": 65
+    },
+    {
+      "Type": 1,
+      "GearJSON": "{\"Ver\":1,\"Name\":\"Scaler Reboog\",\"Packet\":{\"Comps\":{\"Length\":5,\"a\":{\"c\":2,\"v\":27},\"b\":{\"c\":3,\"v\":161},\"c\":{\"c\":4,\"v\":39},\"d\":{\"c\":48,\"v\":19}},\"MatTrans\":{\"tDecalA\":{\"scale\":0.1},\"tDecalB\":{\"scale\":0.1},\"tPattern\":{\"scale\":0.1}},\"publicName\":{\"data\":\"Scaler Reboog\"}}}",
+      "name": "Knife_02",
+      "internalEnabled": true,
+      "persistentID": 68
+    },
+    {
+      "Type": 1,
+      "GearJSON": "{\"Ver\":1,\"Name\":\"Mastaba Fixed Blade\",\"Packet\":{\"Comps\":{\"Length\":7,\"a\":{\"c\":2,\"v\":27},\"b\":{\"c\":3,\"v\":161},\"c\":{\"c\":4,\"v\":39},\"d\":{\"c\":44,\"v\":12},\"e\":{\"c\":48,\"v\":14},\"f\":{\"c\":50,\"v\":10}},\"MatTrans\":{\"tDecalA\":{\"scale\":0.1},\"tDecalB\":{\"scale\":0.1},\"tPattern\":{\"scale\":0.1}},\"publicName\":{\"data\":\"Mastaba Fixed Blade\"}}}",
+      "name": "Knife",
+      "internalEnabled": true,
+      "persistentID": 53
+    },
+    {
+      "Type": 1,
+      "GearJSON": "{\"Ver\":1,\"Name\":\"ICEA Cutthroat\",\"Packet\":{\"Comps\":{\"Length\":7,\"a\":{\"c\":2,\"v\":27},\"b\":{\"c\":3,\"v\":161},\"c\":{\"c\":4,\"v\":39},\"d\":{\"c\":44,\"v\":77},\"e\":{\"c\":48,\"v\":14},\"f\":{\"c\":50,\"v\":10}},\"publicName\":{\"data\":\"ICEA Cutthroat\"}}}",
+      "name": "Knife_Custom",
+      "internalEnabled": true,
+      "persistentID": 100
+    },
+    {
+      "Type": 1,
+      "GearJSON": "{\"Ver\":1,\"Name\":\"MACO Drillhead Lite\",\"Packet\":{\"Comps\":{\"Length\":7,\"a\":{\"c\":2,\"v\":28},\"b\":{\"c\":3,\"v\":162},\"c\":{\"c\":4,\"v\":40},\"d\":{\"c\":44,\"v\":13},\"e\":{\"c\":48,\"v\":15},\"f\":{\"c\":50,\"v\":11}},\"MatTrans\":{\"tDecalA\":{\"scale\":0.1},\"tDecalB\":{\"scale\":0.1},\"tPattern\":{\"scale\":0.1}},\"publicName\":{\"data\":\"MACO Drillhead\"}}}",
+      "name": "Spear",
+      "internalEnabled": true,
+      "persistentID": 54
+    },
+    {
+      "Type": 1,
+      "GearJSON": "{\"Ver\":1,\"Name\":\"IsoCo Stinger\",\"Packet\":{\"Comps\":{\"Length\":7,\"a\":{\"c\":2,\"v\":28},\"b\":{\"c\":3,\"v\":162},\"c\":{\"c\":4,\"v\":40},\"d\":{\"c\":44,\"v\":16},\"e\":{\"c\":48,\"v\":18},\"f\":{\"c\":50,\"v\":13}},\"MatTrans\":{\"tDecalA\":{\"scale\":0.1},\"tDecalB\":{\"scale\":0.1},\"tPattern\":{\"scale\":0.1}},\"publicName\":{\"data\":\"MACO Drillhead\"}}}",
+      "name": "Spear_02",
+      "internalEnabled": true,
+      "persistentID": 70
+    },
+    {
+      "Type": 1,
+      "GearJSON": "{\"Ver\":1,\"Name\":\"Hacking Tool\",\"Packet\":{\"Comps\":{\"Length\":5,\"a\":{\"c\":2,\"v\":15},\"b\":{\"c\":3,\"v\":53},\"c\":{\"c\":4,\"v\":17},\"d\":{\"c\":5,\"v\":28}},\"MatTrans\":{\"tDecalA\":{\"scale\":0.1},\"tDecalB\":{\"scale\":0.1},\"tPattern\":{\"scale\":0.1}},\"publicName\":{\"data\":\"Hacking Tool\"}}}",
+      "name": "HackingTool",
+      "internalEnabled": true,
+      "persistentID": 2
+    },
+
+    {
+      "Type": 1,
+      "GearJSON": "{\"Ver\":1,\"Name\":\"Bataldo J 515\",\"Packet\":{\"Comps\":{\"Length\":14,\"a\":{\"c\":1,\"v\":2},\"b\":{\"c\":2,\"v\":33},\"c\":{\"c\":3,\"v\":156},\"d\":{\"c\":4,\"v\":46},\"e\":{\"c\":5,\"v\":50},\"f\":{\"c\":6,\"v\":4},\"g\":{\"c\":7,\"v\":4},\"h\":{\"c\":12,\"v\":32},\"i\":{\"c\":16,\"v\":12},\"j\":{\"c\":19,\"v\":11},\"k\":{\"c\":21,\"v\":11},\"l\":{\"c\":23,\"v\":4},\"m\":{\"c\":25,\"v\":5}},\"publicName\":{\"data\":\"Bataldo J 515\"}}}",
+      "name": "ShotgunHEL",
+      "internalEnabled": true,
+      "persistentID": 61
+    },
+    {
+      "Type": 1,
+      "GearJSON": "{\"Ver\":1,\"Name\":\"Buckland SBS III\",\"Packet\":{\"Comps\":{\"Length\":14,\"a\":{\"c\":2,\"v\":16},\"b\":{\"c\":3,\"v\":156},\"c\":{\"c\":4,\"v\":20},\"d\":{\"c\":5,\"v\":37},\"e\":{\"c\":6,\"v\":4},\"f\":{\"c\":8,\"v\":17},\"g\":{\"c\":9,\"v\":5},\"h\":{\"c\":10,\"v\":18},\"i\":{\"c\":11,\"v\":18},\"j\":{\"c\":12,\"v\":47},\"k\":{\"c\":16,\"v\":22},\"l\":{\"c\":19,\"v\":21},\"m\":{\"c\":25,\"v\":3}},\"MatTrans\":{\"tDecalA\":{\"position\":{\"x\":0.51,\"y\":-0.05,\"normalized\":{\"x\":0.9952285,\"y\":-0.09757143,\"magnitude\":1.0,\"sqrMagnitude\":1.0},\"magnitude\":0.5124451,\"sqrMagnitude\":0.2626},\"scale\":0.3},\"tDecalB\":{\"position\":{\"x\":0.5,\"y\":-0.07,\"normalized\":{\"x\":0.9903418,\"y\":-0.138647854,\"magnitude\":1.0,\"sqrMagnitude\":1.00000012},\"magnitude\":0.5048762,\"sqrMagnitude\":0.2549},\"scale\":0.3},\"tPattern\":{\"angle\":-90.0,\"scale\":0.3}},\"publicName\":{\"data\":\"Buckland SBS III\"}}}",
+      "name": "ShotgunShort",
+      "internalEnabled": true,
+      "persistentID": 51
+    },
+    {
+      "Type": 1,
+      "GearJSON": "{\"Ver\":1,\"Name\":\"Accrat Golok DA\",\"Packet\":{\"Comps\":{\"Length\":18,\"a\":{\"c\":1,\"v\":2},\"b\":{\"c\":2,\"v\":17},\"c\":{\"c\":3,\"v\":108},\"d\":{\"c\":4,\"v\":22},\"e\":{\"c\":5,\"v\":38},\"f\":{\"c\":6,\"v\":2},\"g\":{\"c\":7,\"v\":2},\"h\":{\"c\":8,\"v\":18},\"i\":{\"c\":9,\"v\":13},\"j\":{\"c\":10,\"v\":22},\"k\":{\"c\":11,\"v\":22},\"l\":{\"c\":12,\"v\":41},\"m\":{\"c\":16,\"v\":19},\"n\":{\"c\":19,\"v\":17},\"o\":{\"c\":21,\"v\":9},\"p\":{\"c\":23,\"v\":5},\"q\":{\"c\":25,\"v\":5}},\"MatTrans\":{\"tDecalA\":{\"position\":{\"x\":-0.202,\"y\":0.012,\"normalized\":{\"x\":-0.9982401,\"y\":0.05930139,\"magnitude\":1.0,\"sqrMagnitude\":1.0},\"magnitude\":0.20235613,\"sqrMagnitude\":0.0409480035},\"scale\":0.07},\"tDecalB\":{\"position\":{\"x\":-0.2,\"y\":0.01,\"normalized\":{\"x\":-0.9987523,\"y\":0.0499376133,\"normalized\":{\"x\":-0.998752356,\"y\":0.049937617,\"magnitude\":1.0,\"sqrMagnitude\":1.0},\"magnitude\":0.99999994,\"sqrMagnitude\":0.99999994},\"magnitude\":0.200249851,\"sqrMagnitude\":0.0401},\"scale\":0.07},\"tPattern\":{\"position\":{\"x\":-0.1,\"y\":0.032,\"normalized\":{\"x\":-0.9524241,\"y\":0.3047757,\"normalized\":{\"x\":-0.952424169,\"y\":0.304775745,\"magnitude\":1.0,\"sqrMagnitude\":1.0},\"magnitude\":0.99999994,\"sqrMagnitude\":0.99999994},\"magnitude\":0.104995243,\"sqrMagnitude\":0.011024},\"angle\":-140.0,\"scale\":0.1}},\"publicName\":{\"data\":\"Accrat Golok DA\"}}}",
+      "name": "BullpupAuto",
+      "internalEnabled": false,
+      "persistentID": 40
+    },
+    {
+      "Type": 1,
+      "GearJSON": "{\"Ver\":1,\"Name\":\"Malatack FS\",\"Packet\":{\"Comps\":{\"Length\":14,\"a\":{\"c\":1,\"v\":2},\"b\":{\"c\":2,\"v\":1},\"c\":{\"c\":3,\"v\":108},\"d\":{\"c\":4,\"v\":1},\"e\":{\"c\":5,\"v\":3},\"f\":{\"c\":6,\"v\":3},\"g\":{\"c\":7,\"v\":3},\"h\":{\"c\":12,\"v\":82},\"i\":{\"c\":16,\"v\":25},\"j\":{\"c\":19,\"v\":8},\"k\":{\"c\":21,\"v\":20},\"l\":{\"c\":23,\"v\":4},\"m\":{\"c\":25,\"v\":3}},\"publicName\":{\"data\":\"Malatack LX\"}}}",
+      "name": "RifleAuto",
+      "internalEnabled": true,
+      "persistentID": 12
+    },
+    {
+      "Type": 1,
+      "GearJSON": "{\"Ver\":1,\"Name\":\"Van Auken DDT3\",\"Packet\":{\"Comps\":{\"Length\":14,\"a\":{\"c\":1,\"v\":2},\"b\":{\"c\":2,\"v\":2},\"c\":{\"c\":3,\"v\":108},\"d\":{\"c\":4,\"v\":2},\"e\":{\"c\":5,\"v\":52},\"f\":{\"c\":6,\"v\":2},\"g\":{\"c\":7,\"v\":1},\"h\":{\"c\":12,\"v\":73},\"i\":{\"c\":16,\"v\":6},\"j\":{\"c\":19,\"v\":25},\"k\":{\"c\":21,\"v\":8},\"l\":{\"c\":23,\"v\":5},\"m\":{\"c\":25,\"v\":2}},\"publicName\":{\"data\":\"Van Auken DDT3\"}}}",
+      "name": "SMGAuto",
+      "internalEnabled": true,
+      "persistentID": 4
+    },
+    {
+      "Type": 1,
+      "GearJSON": "{\"Ver\":1,\"Name\":\"Van Auken CAB F7\",\"Packet\":{\"Comps\":{\"Length\":14,\"a\":{\"c\":1,\"v\":1},\"b\":{\"c\":2,\"v\":2},\"c\":{\"c\":3,\"v\":108},\"d\":{\"c\":4,\"v\":2},\"e\":{\"c\":5,\"v\":41},\"f\":{\"c\":6,\"v\":2},\"g\":{\"c\":7,\"v\":1},\"h\":{\"c\":12,\"v\":67},\"i\":{\"c\":16,\"v\":25},\"j\":{\"c\":19,\"v\":26},\"k\":{\"c\":21,\"v\":56},\"l\":{\"c\":23,\"v\":5},\"m\":{\"c\":25,\"v\":3}},\"publicName\":{\"data\":\"Van Auken CAB F7\"}}}",
+      "name": "SMGBurst",
+      "internalEnabled": true,
+      "persistentID": 34
+    },
+    {
+      "Type": 1,
+      "GearJSON": "{\"Ver\":1,\"Name\":\"Drekker Ferry ANS\",\"Packet\":{\"Comps\":{\"Length\":13,\"a\":{\"c\":1,\"v\":1},\"b\":{\"c\":2,\"v\":1},\"c\":{\"c\":3,\"v\":108},\"d\":{\"c\":4,\"v\":1},\"e\":{\"c\":5,\"v\":3},\"f\":{\"c\":6,\"v\":3},\"g\":{\"c\":7,\"v\":3},\"h\":{\"c\":12,\"v\":57},\"i\":{\"c\":19,\"v\":25},\"j\":{\"c\":21,\"v\":84},\"k\":{\"c\":23,\"v\":1},\"l\":{\"c\":25,\"v\":3}},\"publicName\":{\"data\":\"Drekker Ferry ANS\"}}}",
+      "name": "AdvancedCarbine",
+      "internalEnabled": true,
+      "persistentID": 30
+    },
+    {
+      "Type": 1,
+      "GearJSON": "{\"Ver\":1,\"Name\":\"Kovac Roamer T4\",\"Packet\":{\"Comps\":{\"Length\":14,\"a\":{\"c\":1,\"v\":2},\"b\":{\"c\":2,\"v\":32},\"c\":{\"c\":3,\"v\":108},\"d\":{\"c\":4,\"v\":1},\"e\":{\"c\":5,\"v\":3},\"f\":{\"c\":6,\"v\":3},\"g\":{\"c\":7,\"v\":1},\"h\":{\"c\":12,\"v\":70},\"i\":{\"c\":16,\"v\":13},\"j\":{\"c\":19,\"v\":34},\"k\":{\"c\":21,\"v\":61},\"l\":{\"c\":23,\"v\":1},\"m\":{\"c\":25,\"v\":6}},\"publicName\":{\"data\":\"Kovac Roamer T4\"}}}",
+      "name": "ScoutRifle",
+      "internalEnabled": true,
+      "persistentID": 60
+    },
+    {
+      "Type": 1,
+      "GearJSON": "{\"Ver\":1,\"Name\":\"Kovac Peacekeeper\",\"Packet\":{\"Comps\":{\"Length\":7,\"a\":{\"c\":2,\"v\":29},\"b\":{\"c\":3,\"v\":163},\"c\":{\"c\":4,\"v\":41},\"d\":{\"c\":44,\"v\":14},\"e\":{\"c\":48,\"v\":16},\"f\":{\"c\":50,\"v\":12}},\"MatTrans\":{\"tDecalA\":{\"scale\":0.1},\"tDecalB\":{\"scale\":0.1},\"tPattern\":{\"scale\":0.1}},\"publicName\":{\"data\":\"Kovac Peacekeeper\"}}}",
+      "name": "Bat",
+      "internalEnabled": false,
+      "persistentID": 55
+    },
+    {
+      "Type": 1,
+      "GearJSON": "{\"Ver\":1,\"Name\":\"Drekker Krisuna CTA \",\"Packet\":{\"Comps\":{\"Length\":13,\"a\":{\"c\":2,\"v\":34},\"b\":{\"c\":3,\"v\":109},\"c\":{\"c\":4,\"v\":47},\"d\":{\"c\":5,\"v\":51},\"e\":{\"c\":6,\"v\":36},\"f\":{\"c\":7,\"v\":5},\"g\":{\"c\":12,\"v\":21},\"h\":{\"c\":16,\"v\":10},\"i\":{\"c\":19,\"v\":2},\"j\":{\"c\":21,\"v\":60},\"k\":{\"c\":23,\"v\":12},\"l\":{\"c\":25,\"v\":2}},\"publicName\":{\"data\":\"Drekker Krisuna CTA \"}}}",
+      "name": "Precision_Rifle",
+      "internalEnabled": true,
+      "persistentID": 62
+    },
+    {
+      "Type": 1,
+      "GearJSON": "{\"Ver\":1,\"Name\":\"Omneco VIS Mk.II\",\"Packet\":{\"Comps\":{\"Length\":13,\"a\":{\"c\":2,\"v\":4},\"b\":{\"c\":3,\"v\":108},\"c\":{\"c\":4,\"v\":4},\"d\":{\"c\":5,\"v\":38},\"e\":{\"c\":6,\"v\":34},\"f\":{\"c\":7,\"v\":5},\"g\":{\"c\":12,\"v\":77},\"h\":{\"c\":16,\"v\":2},\"i\":{\"c\":19,\"v\":26},\"j\":{\"c\":21,\"v\":7},\"k\":{\"c\":23,\"v\":20},\"l\":{\"c\":25,\"v\":3}},\"publicName\":{\"data\":\"Omneco VIS Mk.II\"}}}",
+      "name": "DMRSemi",
+      "internalEnabled": true,
+      "persistentID": 5
+    },
+    {
+      "Type": 1,
+      "GearJSON": "{\"Ver\":1,\"Name\":\"Kovac AS-BY\",\"Packet\":{\"Comps\":{\"Length\":14,\"a\":{\"c\":1,\"v\":1},\"b\":{\"c\":2,\"v\":4},\"c\":{\"c\":3,\"v\":108},\"d\":{\"c\":4,\"v\":4},\"e\":{\"c\":5,\"v\":34},\"f\":{\"c\":6,\"v\":34},\"g\":{\"c\":7,\"v\":5},\"h\":{\"c\":12,\"v\":70},\"i\":{\"c\":16,\"v\":26},\"j\":{\"c\":19,\"v\":12},\"k\":{\"c\":21,\"v\":15},\"l\":{\"c\":23,\"v\":1},\"m\":{\"c\":25,\"v\":5}},\"publicName\":{\"data\":\"Kovac AS-BY\"}}}",
+      "name": "DMRBurst",
+      "internalEnabled": true,
+      "persistentID": 50
+    },
+    {
+      "Type": 1,
+      "GearJSON": "{\"Ver\":1,\"Name\":\"Kovac Gatekeeper\",\"Packet\":{\"Comps\":{\"Length\":8,\"a\":{\"c\":2,\"v\":14},\"b\":{\"c\":3,\"v\":100},\"c\":{\"c\":4,\"v\":13},\"d\":{\"c\":44,\"v\":7},\"e\":{\"c\":46,\"v\":5},\"f\":{\"c\":48,\"v\":9},\"g\":{\"c\":50,\"v\":5}},\"publicName\":{\"data\":\"Kovac Gatekeeper\"}}}",
+      "name": "HeavyDutyHammer",
+      "internalEnabled": true,
+      "persistentID": 57
+    },
+    {
+      "Type": 1,
+      "GearJSON": "{\"Ver\":1,\"Name\":\"ANS Speaker\",\"Packet\":{\"Comps\":{\"Length\":8,\"a\":{\"c\":2,\"v\":14},\"b\":{\"c\":3,\"v\":100},\"c\":{\"c\":4,\"v\":13},\"d\":{\"c\":44,\"v\":9},\"e\":{\"c\":46,\"v\":13},\"f\":{\"c\":48,\"v\":9},\"g\":{\"c\":50,\"v\":2}},\"publicName\":{\"data\":\"FERRY Speaker\"}}}",
+      "name": "FERRYSpeaker",
+      "internalEnabled": true,
+      "persistentID": 120
+    },
+    {
+      "Type": 1,
+      "GearJSON": "{\"Ver\":1,\"Name\":\"MACO Splitter\",\"Packet\":{\"Comps\":{\"Length\":8,\"a\":{\"c\":2,\"v\":14},\"b\":{\"c\":3,\"v\":100},\"c\":{\"c\":4,\"v\":13},\"d\":{\"c\":44,\"v\":79},\"e\":{\"c\":46,\"v\":5},\"f\":{\"c\":48,\"v\":8},\"g\":{\"c\":50,\"v\":4}},\"publicName\":{\"data\":\"MACO Splitter\"}}}",
+      "name": "Sledgehammer",
+      "internalEnabled": true,
+      "persistentID": 10
+    },
+    {
+      "Type": 1,
+      "GearJSON": "{\"Ver\":1,\"Name\":\"Hanaway Model 7\",\"Packet\":{\"Comps\":{\"Length\":13,\"a\":{\"c\":2,\"v\":1},\"b\":{\"c\":3,\"v\":108},\"c\":{\"c\":4,\"v\":1},\"d\":{\"c\":5,\"v\":34},\"e\":{\"c\":6,\"v\":3},\"f\":{\"c\":7,\"v\":2},\"g\":{\"c\":12,\"v\":70},\"h\":{\"c\":16,\"v\":26},\"i\":{\"c\":19,\"v\":12},\"j\":{\"c\":21,\"v\":15},\"k\":{\"c\":23,\"v\":1},\"l\":{\"c\":25,\"v\":5}},\"publicName\":{\"data\":\"Hanaway Model 7\"}}}",
+      "name": "RifleSemi",
+      "internalEnabled": false,
+      "persistentID": 41
+    },
+    {
+      "Type": 1,
+      "GearJSON": "{\"Ver\":1,\"Name\":\"Buckland s870\",\"Packet\":{\"Comps\":{\"Length\":16,\"a\":{\"c\":2,\"v\":6},\"b\":{\"c\":3,\"v\":110},\"c\":{\"c\":4,\"v\":6},\"d\":{\"c\":5,\"v\":4},\"e\":{\"c\":6,\"v\":4},\"f\":{\"c\":7,\"v\":4},\"g\":{\"c\":8,\"v\":7},\"h\":{\"c\":9,\"v\":1},\"i\":{\"c\":10,\"v\":24},\"j\":{\"c\":11,\"v\":24},\"k\":{\"c\":12,\"v\":22},\"l\":{\"c\":16,\"v\":12},\"m\":{\"c\":19,\"v\":13},\"n\":{\"c\":21,\"v\":40},\"o\":{\"c\":25,\"v\":2}},\"MatTrans\":{\"tDecalA\":{\"position\":{\"x\":0.11,\"y\":0.01},\"angle\":0.07,\"scale\":0.07},\"tDecalB\":{\"position\":{\"x\":0.105,\"y\":0.005},\"angle\":0.07,\"scale\":0.07},\"tPattern\":{\"position\":{\"x\":0.25,\"y\":0.0},\"angle\":180.0,\"scale\":0.5}},\"publicName\":{\"data\":\"Buckland s870\"}}}",
+      "name": "ShotgunSemi",
+      "internalEnabled": true,
+      "persistentID": 13
+    },
+    {
+      "Type": 1,
+      "GearJSON": "{\"Ver\":1,\"Name\":\"Buckland LKR-6\",\"Packet\":{\"Comps\":{\"Length\":14,\"a\":{\"c\":1,\"v\":2},\"b\":{\"c\":2,\"v\":6},\"c\":{\"c\":3,\"v\":110},\"d\":{\"c\":4,\"v\":46},\"e\":{\"c\":5,\"v\":4},\"f\":{\"c\":6,\"v\":4},\"g\":{\"c\":7,\"v\":4},\"h\":{\"c\":12,\"v\":11},\"i\":{\"c\":16,\"v\":12},\"j\":{\"c\":19,\"v\":27},\"k\":{\"c\":21,\"v\":17},\"l\":{\"c\":23,\"v\":9},\"m\":{\"c\":25,\"v\":2}},\"publicName\":{\"data\":\"Buckland LKR-6\"}}}",
+      "name": "ShotgunAuto",
+      "internalEnabled": true,
+      "persistentID": 31
+    },
+    {
+      "Type": 1,
+      "GearJSON": "{\"Ver\":1,\"Name\":\"Buckland XDist2\",\"Packet\":{\"Comps\":{\"Length\":13,\"a\":{\"c\":1,\"v\":1},\"b\":{\"c\":2,\"v\":6},\"c\":{\"c\":3,\"v\":110},\"d\":{\"c\":4,\"v\":6},\"e\":{\"c\":5,\"v\":46},\"f\":{\"c\":6,\"v\":4},\"g\":{\"c\":7,\"v\":4},\"h\":{\"c\":12,\"v\":20},\"i\":{\"c\":16,\"v\":28},\"j\":{\"c\":19,\"v\":26},\"k\":{\"c\":21,\"v\":43},\"l\":{\"c\":25,\"v\":5}},\"publicName\":{\"data\":\"Buckland XDist2\"}}}",
+      "name": "ShotgunRanged",
+      "internalEnabled": false,
+      "persistentID": 44
+    },
+    {
+      "Type": 1,
+      "GearJSON": "{\"Ver\":1,\"Name\":\"Buckland SCR\",\"Packet\":{\"Comps\":{\"Length\":14,\"a\":{\"c\":1,\"v\":1},\"b\":{\"c\":2,\"v\":556},\"c\":{\"c\":3,\"v\":110},\"d\":{\"c\":4,\"v\":6},\"e\":{\"c\":5,\"v\":46},\"f\":{\"c\":6,\"v\":4},\"g\":{\"c\":7,\"v\":4},\"h\":{\"c\":12,\"v\":11},\"i\":{\"c\":16,\"v\":12},\"j\":{\"c\":19,\"v\":11},\"k\":{\"c\":21,\"v\":11},\"l\":{\"c\":23,\"v\":9},\"m\":{\"c\":25,\"v\":5}},\"publicName\":{\"data\":\"Buckland SCR\"}}}",
+      "name": "AdvancedShotgun",
+      "internalEnabled": false,
+      "persistentID": 64
+    },
+    {
+      "Type": 1,
+      "GearJSON": "{\"Ver\":1,\"Name\":\"Shelling Arid Tactical\",\"Packet\":{\"Comps\":{\"Length\":13,\"a\":{\"c\":2,\"v\":35},\"b\":{\"c\":3,\"v\":109},\"c\":{\"c\":4,\"v\":48},\"d\":{\"c\":5,\"v\":48},\"e\":{\"c\":6,\"v\":29},\"f\":{\"c\":7,\"v\":2},\"g\":{\"c\":12,\"v\":66},\"h\":{\"c\":16,\"v\":21},\"i\":{\"c\":19,\"v\":18},\"j\":{\"c\":21,\"v\":12},\"k\":{\"c\":23,\"v\":8},\"l\":{\"c\":25,\"v\":3}},\"publicName\":{\"data\":\"Shelling Arid Tactical\"}}}",
+      "name": "HighCalPistol",
+      "internalEnabled": true,
+      "persistentID": 63
+    },
+    {
+      "Type": 1,
+      "GearJSON": "{\"Ver\":1,\"Name\":\"Ionwrath CTM-3\",\"Packet\":{\"Comps\":{\"Length\":10,\"a\":{\"c\":2,\"v\":7},\"b\":{\"c\":3,\"v\":109},\"c\":{\"c\":4,\"v\":7},\"d\":{\"c\":5,\"v\":29},\"e\":{\"c\":6,\"v\":29},\"f\":{\"c\":12,\"v\":80},\"g\":{\"c\":16,\"v\":17},\"h\":{\"c\":19,\"v\":15},\"i\":{\"c\":25,\"v\":3}},\"publicName\":{\"data\":\"Mastaba R77\"}}}",
+      "name": "RevolverSemi",
+      "internalEnabled": true,
+      "persistentID": 15
+    },
+    {
+      "Type": 1,
+      "GearJSON": "{\"Ver\":1,\"Name\":\"TechMan Rambukk IV\",\"Packet\":{\"Comps\":{\"Length\":14,\"a\":{\"c\":1,\"v\":2},\"b\":{\"c\":2,\"v\":3},\"c\":{\"c\":3,\"v\":109},\"d\":{\"c\":4,\"v\":3},\"e\":{\"c\":5,\"v\":48},\"f\":{\"c\":6,\"v\":33},\"g\":{\"c\":7,\"v\":3},\"h\":{\"c\":12,\"v\":32},\"i\":{\"c\":16,\"v\":13},\"j\":{\"c\":19,\"v\":25},\"k\":{\"c\":21,\"v\":59},\"l\":{\"c\":23,\"v\":17},\"m\":{\"c\":25,\"v\":6}},\"publicName\":{\"data\":\"TechMan Rambukk IV\"}}}",
+      "name": "HELMachinegun",
+      "internalEnabled": true,
+      "persistentID": 16
+    },
+    {
+      "Type": 1,
+      "GearJSON": "{\"Ver\":1,\"Name\":\"Accrat CR7\",\"Packet\":{\"Comps\":{\"Length\":14,\"a\":{\"c\":1,\"v\":2},\"b\":{\"c\":2,\"v\":555},\"c\":{\"c\":3,\"v\":108},\"d\":{\"c\":4,\"v\":2},\"e\":{\"c\":5,\"v\":47},\"f\":{\"c\":6,\"v\":2},\"g\":{\"c\":7,\"v\":1},\"h\":{\"c\":12,\"v\":96},\"i\":{\"c\":16,\"v\":25},\"j\":{\"c\":19,\"v\":34},\"k\":{\"c\":21,\"v\":10},\"l\":{\"c\":23,\"v\":1},\"m\":{\"c\":25,\"v\":5}},\"publicName\":{\"data\":\"Accrat CR7\"}}}",
+      "name": "CQB Rifle",
+      "internalEnabled": true,
+      "persistentID": 166
+    },
+    {
+      "Type": 1,
+      "GearJSON": "{\"Ver\":1,\"Name\":\"TechMan Coda XIV\",\"Packet\":{\"Comps\":{\"Length\":14,\"a\":{\"c\":1,\"v\":2},\"b\":{\"c\":2,\"v\":19},\"c\":{\"c\":3,\"v\":109},\"d\":{\"c\":4,\"v\":3},\"e\":{\"c\":5,\"v\":39},\"f\":{\"c\":6,\"v\":33},\"g\":{\"c\":7,\"v\":3},\"h\":{\"c\":12,\"v\":51},\"i\":{\"c\":16,\"v\":1},\"j\":{\"c\":19,\"v\":3},\"k\":{\"c\":21,\"v\":73},\"l\":{\"c\":23,\"v\":6},\"m\":{\"c\":25,\"v\":5}},\"publicName\":{\"data\":\"TechMan Coda XIV\"}}}",
+      "name": "MachinegunAuto",
+      "internalEnabled": true,
+      "persistentID": 38
+    },
+    {
+      "Type": 1,
+      "GearJSON": "{\"Ver\":1,\"Name\":\"Ionwrath K-619\",\"Packet\":{\"Comps\":{\"Length\":14,\"a\":{\"c\":1,\"v\":1},\"b\":{\"c\":2,\"v\":3},\"c\":{\"c\":3,\"v\":109},\"d\":{\"c\":4,\"v\":3},\"e\":{\"c\":5,\"v\":43},\"f\":{\"c\":6,\"v\":33},\"g\":{\"c\":7,\"v\":3},\"h\":{\"c\":12,\"v\":84},\"i\":{\"c\":16,\"v\":10},\"j\":{\"c\":19,\"v\":11},\"k\":{\"c\":21,\"v\":51},\"l\":{\"c\":23,\"v\":16},\"m\":{\"c\":25,\"v\":6}},\"publicName\":{\"data\":\"Ionwrath K619\"}}}",
+      "name": "MachinegunBurst",
+      "internalEnabled": true,
+      "persistentID": 39
+    },
+    {
+      "Type": 1,
+      "GearJSON": "{\"Ver\":1,\"Name\":\"TechMan Hydra IX\",\"Packet\":{\"Comps\":{\"Length\":14,\"a\":{\"c\":1,\"v\":1},\"b\":{\"c\":2,\"v\":554},\"c\":{\"c\":3,\"v\":109},\"d\":{\"c\":4,\"v\":3},\"e\":{\"c\":5,\"v\":43},\"f\":{\"c\":6,\"v\":33},\"g\":{\"c\":7,\"v\":3},\"h\":{\"c\":12,\"v\":27},\"i\":{\"c\":16,\"v\":13},\"j\":{\"c\":19,\"v\":11},\"k\":{\"c\":21,\"v\":55},\"l\":{\"c\":23,\"v\":16},\"m\":{\"c\":25,\"v\":6}},\"publicName\":{\"data\":\"TechMan Hydra IX\"}}}",
+      "name": "BurstCannon2",
+      "internalEnabled": false,
+      "persistentID": 142
+    },
+    {
+      "Type": 1,
+      "GearJSON": "{\"Ver\":1,\"Name\":\"Omneco FG-1\",\"Packet\":{\"Comps\":{\"Length\":13,\"a\":{\"c\":2,\"v\":3},\"b\":{\"c\":3,\"v\":109},\"c\":{\"c\":4,\"v\":3},\"d\":{\"c\":5,\"v\":58},\"e\":{\"c\":6,\"v\":33},\"f\":{\"c\":7,\"v\":3},\"g\":{\"c\":12,\"v\":76},\"h\":{\"c\":16,\"v\":26},\"i\":{\"c\":19,\"v\":26},\"j\":{\"c\":21,\"v\":58},\"k\":{\"c\":23,\"v\":9},\"l\":{\"c\":25,\"v\":5}},\"publicName\":{\"data\":\"Omneco FG-1\"}}}",
+      "name": "HELGun",
+      "internalEnabled": true,
+      "persistentID": 43
+    },
+    {
+      "Type": 1,
+      "GearJSON": "{\"Ver\":1,\"Name\":\"Köning CLB .50\",\"Packet\":{\"Comps\":{\"Length\":13,\"a\":{\"c\":2,\"v\":5},\"b\":{\"c\":3,\"v\":109},\"c\":{\"c\":4,\"v\":500},\"d\":{\"c\":5,\"v\":36},\"e\":{\"c\":6,\"v\":36},\"f\":{\"c\":7,\"v\":5},\"g\":{\"c\":12,\"v\":69},\"h\":{\"c\":16,\"v\":13},\"i\":{\"c\":19,\"v\":26},\"j\":{\"c\":21,\"v\":87},\"k\":{\"c\":23,\"v\":13},\"l\":{\"c\":25,\"v\":4}},\"publicName\":{\"data\":\"Köning CLB .50\"}}}",
+      "name": "SniperSemi",
+      "internalEnabled": true,
+      "persistentID": 14
+    },
+    {
+      "Type": 1,
+      "GearJSON": "{\"Ver\":1,\"Name\":\"Köning CECS 42\",\"Packet\":{\"Comps\":{\"Length\":13,\"a\":{\"c\":2,\"v\":5},\"b\":{\"c\":3,\"v\":109},\"c\":{\"c\":4,\"v\":5},\"d\":{\"c\":5,\"v\":36},\"e\":{\"c\":6,\"v\":36},\"f\":{\"c\":7,\"v\":5},\"g\":{\"c\":12,\"v\":19},\"h\":{\"c\":16,\"v\":7},\"i\":{\"c\":19,\"v\":13},\"j\":{\"c\":21,\"v\":22},\"k\":{\"c\":23,\"v\":13},\"l\":{\"c\":25,\"v\":4}},\"publicName\":{\"data\":\"Köning CECS 42\"}}}",
+      "name": "MarksmanRifle",
+      "internalEnabled": false,
+      "persistentID": 144
+    },
+    
+    {
+      "Type": 1,
+      "GearJSON": "{\"Ver\":1,\"Name\":\"Ionwrath ESR-50\",\"Packet\":{\"Comps\":{\"Length\":12,\"a\":{\"c\":2,\"v\":20},\"b\":{\"c\":3,\"v\":109},\"c\":{\"c\":4,\"v\":5},\"d\":{\"c\":5,\"v\":102},\"e\":{\"c\":6,\"v\":36},\"f\":{\"c\":7,\"v\":5},\"g\":{\"c\":12,\"v\":61},\"h\":{\"c\":16,\"v\":13},\"i\":{\"c\":19,\"v\":2},\"j\":{\"c\":21,\"v\":67},\"k\":{\"c\":25,\"v\":4}},\"publicName\":{\"data\":\"Ionwrath ESR-50\"}}}",
+      "name": "PlasmaRifle",
+      "internalEnabled": true,
+      "persistentID": 42
+    },
+    {
+      "Type": 1,
+      "GearJSON": "{\"Ver\":1,\"Name\":\"D-tek Optron IV\",\"Packet\":{\"Comps\":{\"Length\":9,\"a\":{\"c\":2,\"v\":9},\"b\":{\"c\":3,\"v\":28},\"c\":{\"c\":4,\"v\":10},\"d\":{\"c\":27,\"v\":10},\"e\":{\"c\":30,\"v\":3},\"f\":{\"c\":33,\"v\":3},\"g\":{\"c\":40,\"v\":2},\"h\":{\"c\":42,\"v\":3}},\"MatTrans\":{\"tDecalA\":{\"scale\":0.1},\"tDecalB\":{\"scale\":0.1},\"tPattern\":{\"scale\":0.1}},\"publicName\":{\"data\":\"D-tek Optron IV\"}}}",
+      "name": "Bio_Tracker",
+      "internalEnabled": true,
+      "persistentID": 18
+    },
+    {
+      "Type": 1,
+      "GearJSON": "{\"Ver\":1,\"Name\":\"RAD Labs Meduza\",\"Packet\":{\"Comps\":{\"Length\":11,\"a\":{\"c\":1,\"v\":11},\"b\":{\"c\":2,\"v\":12},\"c\":{\"c\":3,\"v\":97},\"d\":{\"c\":4,\"v\":11},\"e\":{\"c\":5,\"v\":45},\"f\":{\"c\":12,\"v\":28},\"g\":{\"c\":16,\"v\":2},\"h\":{\"c\":27,\"v\":9},\"i\":{\"c\":40,\"v\":2},\"j\":{\"c\":42,\"v\":2}},\"MatTrans\":{\"tDecalA\":{\"scale\":0.1},\"tDecalB\":{\"scale\":0.1},\"tPattern\":{\"scale\":0.1}},\"publicName\":{\"data\":\"RAD Labs Meduza\"}}}",
+      "name": "SentryGun_Auto_staggering",
+      "internalEnabled": true,
+      "persistentID": 6
+    },
+    {
+      "Type": 1,
+      "GearJSON": "{\"Ver\":1,\"Name\":\"Stalwart Flow G2\",\"Packet\":{\"Comps\":{\"Length\":12,\"a\":{\"c\":2,\"v\":11},\"b\":{\"c\":3,\"v\":73},\"c\":{\"c\":4,\"v\":15},\"d\":{\"c\":27,\"v\":15},\"e\":{\"c\":30,\"v\":5},\"f\":{\"c\":32,\"v\":4},\"g\":{\"c\":33,\"v\":4},\"h\":{\"c\":36,\"v\":1},\"i\":{\"c\":37,\"v\":2},\"j\":{\"c\":40,\"v\":2},\"k\":{\"c\":42,\"v\":7}},\"MatTrans\":{\"tDecalA\":{\"scale\":0.1},\"tDecalB\":{\"scale\":0.1},\"tPattern\":{\"scale\":0.1}},\"publicName\":{\"data\":\"Stalwart Flow G2\"}}}",
+      "name": "Glue_distance",
+      "internalEnabled": true,
+      "persistentID": 17
+    },
+    {
+      "Type": 1,
+      "GearJSON": "{\"Ver\":1,\"Name\":\"Raptus Steigro Custom\",\"Packet\":{\"Comps\":{\"Length\":13,\"a\":{\"c\":1,\"v\":2},\"b\":{\"c\":2,\"v\":21},\"c\":{\"c\":3,\"v\":108},\"d\":{\"c\":4,\"v\":21},\"e\":{\"c\":5,\"v\":44},\"f\":{\"c\":6,\"v\":1},\"g\":{\"c\":7,\"v\":1},\"h\":{\"c\":12,\"v\":39},\"i\":{\"c\":16,\"v\":18},\"j\":{\"c\":19,\"v\":25},\"k\":{\"c\":23,\"v\":5},\"l\":{\"c\":25,\"v\":3}},\"publicName\":{\"data\":\"Raptus Steigro Custom\"}}}",
+      "name": "Autopistol staggering",
+      "internalEnabled": true,
+      "persistentID": 45
+    },
+    {
+      "Type": 1,
+      "GearJSON": "{\"Ver\":1,\"Name\":\"Krieger O4\",\"Packet\":{\"Comps\":{\"Length\":10,\"a\":{\"c\":2,\"v\":13},\"b\":{\"c\":3,\"v\":37},\"c\":{\"c\":4,\"v\":14},\"d\":{\"c\":27,\"v\":12},\"e\":{\"c\":30,\"v\":2},\"f\":{\"c\":33,\"v\":2},\"g\":{\"c\":37,\"v\":1},\"h\":{\"c\":40,\"v\":1},\"i\":{\"c\":42,\"v\":6}},\"MatTrans\":{\"tDecalA\":{\"scale\":0.1},\"tDecalB\":{\"scale\":0.1},\"tPattern\":{\"scale\":0.1}},\"publicName\":{\"data\":\"Krieger O4\"}}}",
+      "name": "Mine_Deployer",
+      "internalEnabled": true,
+      "persistentID": 20
+    },
+    {
+      "Type": 1,
+      "GearJSON": "{\"Ver\":1,\"Name\":\"Mechatronic SGB3\",\"Packet\":{\"Comps\":{\"Length\":11,\"a\":{\"c\":1,\"v\":12},\"b\":{\"c\":2,\"v\":12},\"c\":{\"c\":3,\"v\":97},\"d\":{\"c\":4,\"v\":11},\"e\":{\"c\":5,\"v\":3},\"f\":{\"c\":12,\"v\":17},\"g\":{\"c\":16,\"v\":8},\"h\":{\"c\":27,\"v\":9},\"i\":{\"c\":40,\"v\":3},\"j\":{\"c\":42,\"v\":2}},\"MatTrans\":{\"tDecalA\":{\"scale\":0.1},\"tDecalB\":{\"scale\":0.1},\"tPattern\":{\"scale\":0.1}},\"publicName\":{\"data\":\"Mechatronic SGB3\"}}}",
+      "name": "SentryGun_Burst",
+      "internalEnabled": true,
+      "persistentID": 24
+    },
+    {
+      "Type": 1,
+      "GearJSON": "{\"Ver\":1,\"Name\":\"Autotek 51 RSG\",\"Packet\":{\"Comps\":{\"Length\":11,\"a\":{\"c\":1,\"v\":10},\"b\":{\"c\":2,\"v\":12},\"c\":{\"c\":3,\"v\":97},\"d\":{\"c\":4,\"v\":11},\"e\":{\"c\":5,\"v\":36},\"f\":{\"c\":12,\"v\":19},\"g\":{\"c\":16,\"v\":1},\"h\":{\"c\":27,\"v\":9},\"i\":{\"c\":40,\"v\":1},\"j\":{\"c\":42,\"v\":2}},\"MatTrans\":{\"tDecalA\":{\"scale\":0.1},\"tDecalB\":{\"scale\":0.1},\"tPattern\":{\"scale\":0.1}},\"publicName\":{\"data\":\"Autotek 51 RSG\"}}}",
+      "name": "SentryGun_Semi_Sniper",
+      "internalEnabled": true,
+      "persistentID": 23
+    },
+    {
+      "Type": 1,
+      "GearJSON": "{\"Ver\":1,\"Name\":\"Mechatronic B5 LFR\",\"Packet\":{\"Comps\":{\"Length\":11,\"a\":{\"c\":1,\"v\":13},\"b\":{\"c\":2,\"v\":12},\"c\":{\"c\":3,\"v\":97},\"d\":{\"c\":4,\"v\":11},\"e\":{\"c\":5,\"v\":4},\"f\":{\"c\":12,\"v\":13},\"g\":{\"c\":16,\"v\":2},\"h\":{\"c\":27,\"v\":9},\"i\":{\"c\":40,\"v\":2},\"j\":{\"c\":42,\"v\":2}},\"MatTrans\":{\"tDecalA\":{\"scale\":0.1},\"tDecalB\":{\"scale\":0.1},\"tPattern\":{\"scale\":0.1}},\"publicName\":{\"data\":\"Mechatronic B5 LFR\"}}}",
+      "name": "SentryGun_ShotgunSemi",
+      "internalEnabled": true,
+      "persistentID": 25
+    }
+  ],
+  "LastPersistentID": 200
+}

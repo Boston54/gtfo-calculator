@@ -1,0 +1,224 @@
+{
+  "melee": [
+    {
+      "names": [
+        "LightAttackDamage",
+        "ChargedAttackDamage"
+      ],
+      "mode": "range",
+      "alias": "Damage",
+      "description": "The minimum and maximum base damage, dependent on the melee weapon's charge."
+    },
+    {
+      "names": [
+        "LightPrecisionMulti",
+        "ChargedPrecisionMulti"
+      ],
+      "mode": "range",
+      "alias": "Precision Multiplier",
+      "units": "x",
+      "description": "The minimum and maximum precision multipliers, dependent on the melee weapon's charge.\nPrecision multipliers affect the amount that applied damage will deal to the enemy when it is hit in its precision points (typically, head or tumours)."
+    },
+    {
+      "names": [
+        "LightStaggerMulti",
+        "ChargedStaggerMulti"
+      ],
+      "mode": "range",
+      "alias": "Stagger Multiplier",
+      "units": "x",
+      "description": "The minimum and maximum stagger multipliers, dependent on the melee weapon's charge.\nStagger multipliers affect the amount that applied damage contributes towards an enemy's 'Stagger HP'."
+    },
+    {
+      "names": [
+        "LightEnvironmentMulti",
+        "ChargedEnvironmentMulti"
+      ],
+      "mode": "range",
+      "alias": "Environmental Multiplier",
+      "units": "x",
+      "description": "The minimum and maximum environmental multipliers, dependent on the melee weapon's charge.\nEnvironmental multipliers affect the amount that melee weapons damage the environment, such as weak doors and locks."
+    },
+    {
+      "names": [
+        "LightBackstabberMulti",
+        "ChargedBackstabberMulti"
+      ],
+      "mode": "range",
+      "alias": "Backstab Multiplier",
+      "units": "x",
+      "description": "The minimum and maximum backstab multipliers, dependent on the melee weapon's charge.\nBackstab multipliers affect the damage dealt to an enemy when hitting them from behind."
+    },
+    {
+      "names": [
+        "LightSleeperMulti",
+        "ChargedSleeperMulti"
+      ],
+      "mode": "range",
+      "alias": "Sleeping Multiplier",
+      "units": "x",
+      "description": "The minimum and maximum sleeping multipliers, dependent on the melee weapon's charge.\nSleeping multipliers affect the damage dealt to an enemy when they are sleeping."
+    },
+    {
+      "names": [
+        "LightAttackStaminaCost.baseStaminaCostInCombat",
+        "ChargedAttackStaminaCost.baseStaminaCostInCombat"
+      ],
+      "mode": "range",
+      "alias": "Stamina Cost",
+      "units": "%",
+      "multiplier": 100,
+      "description": "The minimum and maximum stamina cost of swinging the melee weapon while in combat, dependent on the melee weapon's charge."
+    },
+    {
+      "name": "PushStaminaCost.baseStaminaCostInCombat",
+      "alias": "Shove Stamina Cost",
+      "multiplier": 100,
+      "units": "%",
+      "description": "The stamina cost of performing a 'push' action with the melee weapon while in combat."
+    },
+    {
+      "names": [
+        "HoldToChargeTime",
+        "MaxDamageChargeTime"
+      ],
+      "mode": "sum",
+      "alias": "Charge Time",
+      "units": "s",
+      "description": "The total time (in seconds) to charge the weapon.\nCalculated as the sum of the HoldToChargeTime (time that the attack button needs to be held before the weapon starts to charge) and the MaxDamageChargeTime (time to actually charge the weapon)."
+    },
+    {
+      "name": "AutoAttackTime",
+      "alias": "Auto Attack Time",
+      "units": "s",
+      "description": "Time (in seconds) until the weapon will automatically swing when holding it at full charge."
+    }
+  ],
+  "gun": [
+    {
+      "name": "Damage",
+      "multiplyByPellets": true,
+      "description": "The base damage dealt by this weapon before any multipliers are applied."
+    },
+    {
+      "name": "DefaultClipSize",
+      "alias": "Clip Size",
+      "description": "The number of bullets in a single clip."
+    },
+    {
+      "name": "PiercingDamageCountLimit",
+      "alias": "Pierce",
+      "onlyIf": {
+        "name": "PiercingBullets",
+        "condition": "bool"
+      },
+      "description": "The number of times this weapon's bullets will pierce.\nNote that in vanilla this is quite buggy and the actual number of pierces may be less than this depending on the enemy that was hit."
+    },
+    {
+      "name": "PrecisionDamageMulti",
+      "alias": "Precision Multiplier",
+      "units": "x",
+      "description": "The precision multiplier of the weapon.\nPrecision multipliers affect the amount that applied damage will deal to the enemy when it is hit in its precision points (typically, head or tumours)"
+    },
+    {
+      "name": "StaggerDamageMulti",
+      "alias": "Stagger Multiplier",
+      "units": "x",
+      "description": "The stagger multiplier of the weapon.\nStagger multipliers affect the amount that applied damage contributes towards an enemy's 'Stagger HP'"
+    },
+    {
+      "names": [
+        "DamageFalloff.x",
+        "DamageFalloff.y"
+      ],
+      "mode": "range",
+      "alias": "Falloff",
+      "units": "m",
+      "description": "The falloff start and end of the weapon.\nFrom 0m to the falloff start, the weapon will deal full damage.\nBetween the falloff start and end, the weapon linearly does less damage, with 100% at the start, and 0% at the end.\nHowever, this resulting value is always at least 10% of the weapon's original damage, meaning that the weapon actually reaches its minimum damage value slightly before reaching the falloff end."
+    },
+    {
+      "name": "ShotgunBulletCount",
+      "alias": "Pellets",
+      "onlyIf": {
+        "name": "ShotgunBulletCount",
+        "condition": "notEqual",
+        "value": 0
+      },
+      "description": "The number of pellets fired from this weapon. Used for shotguns."
+    }
+  ],
+  "sentry": [
+    {
+      "name": "Damage",
+      "multiplyByPellets": true,
+      "description": "The base damage dealt by this sentry before any multipliers are applied."
+    },
+    {
+      "name": "PiercingDamageCountLimit",
+      "alias": "Pierce",
+      "onlyIf": {
+        "name": "PiercingBullets",
+        "condition": "bool"
+      },
+      "description": "The number of times this weapon's bullets will pierce.\nNote that in vanilla this is quite buggy and the actual number of pierces may be less than this depending on the enemy that was hit."
+    },
+    {
+      "name": "PrecisionDamageMulti",
+      "alias": "Precision Multiplier",
+      "units": "x",
+      "description": "The precision multiplier of the weapon.\nPrecision multipliers affect the amount that applied damage will deal to the enemy."
+    },
+    {
+      "name": "StaggerDamageMulti",
+      "alias": "Stagger Multiplier",
+      "units": "x",
+      "description": "The stagger multiplier of the weapon.\nStagger multipliers affect the amount that applied damage contributes towards an enemy's 'Stagger HP'"
+    },
+    {
+      "names": [
+        "DamageFalloff.x",
+        "DamageFalloff.y"
+      ],
+      "mode": "range",
+      "alias": "Falloff",
+      "units": "m",
+      "description": "The falloff start and end of the weapon.\nFrom 0m to the falloff start, the weapon will deal full damage.\nBetween the falloff start and end, the weapon linearly does less damage, with 100% at the start, and 0% at the end.\nHowever, this resulting value is always at least 10% of the weapon's original damage, meaning that the weapon actually reaches its minimum damage value slightly before reaching the falloff end."
+    }
+  ],
+  "enemy": [
+    {
+      "name": "Health.HealthMax",
+      "alias": "Health",
+      "description": "The maximum health of the enemy."
+    },
+    {
+      "name": "Health.DamageUntilHitreact",
+      "alias": "Stagger HP",
+      "description": "The amount of damage that needs to be dealt to this enemy for it to stagger. All damage that is dealt to the enemy is multiplied by the weapon's stagger multiplier before being applied here.\nEach time the stagger HP reaches zero, the enemy will stagger and it will reset back to the initial value."
+    },
+    {
+      "name": "Health.WeakspotDamageMulti",
+      "alias": "Precision Multiplier",
+      "units": "x",
+      "onlyIf": {
+        "name": "Calculator_HasPrecisionPoints",
+        "condition": "bool"
+      },
+      "description": "A multiplier applied to all damage dealt to this enemy's precision points (typically, head or tumours)."
+    },
+    {
+      "name": "Health.ArmorDamageMulti",
+      "alias": "Armor Multiplier",
+      "onlyIf": {
+        "name": "Calculator_HasArmor",
+        "condition": "bool"
+      },
+      "description": "A multiplier applied to all damage that is dealt to this enemy when it is hit in the armor.\nFor all armored vanilla enemies, this means it is hit in the body instead of its precision points.\nNote that due to floating point imprecision in computers, calculations performed with extremely low armor multipliers may not be representative of the real damage values in-game."
+    },
+    {
+      "name": "Health.BodypartHealth",
+      "alias": "Limb HP",
+      "description": "The health of each of the enemies limbs. On some enemies, breaking a limb will cause it to stagger.\nFor enemies with tumours, this is the health of each tumour, where damage caps apply.\nThe damage dealt to a single tumour with a single bullet can never exceed the health of the tumour + 1, however clients can bypass this restriction with shotgun-type weapons."
+    }
+  ]
+}

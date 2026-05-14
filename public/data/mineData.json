@@ -1,0 +1,36 @@
+[
+  {
+    "Calculator_isMine": true,
+    "TechnicalName": "Krieger 04",
+    "PublicName": "Mine Deployer",
+    "Damage": 50.0,
+    "MinDamage": 15,
+    "StaggerDamageMulti": 1,
+    "PrecisionDamageMulti": 1,
+    "falloffStart": "mine_deployer",
+    "falloffEnd": "mine_deployer",
+    "DamageFalloff": {
+      "x": 3,
+      "y": 15
+    },
+    "ShotgunBulletCount": 0,
+    "DefaultClipSize": 8,
+    "OptionType": "Gun"
+  },
+  {
+    "Calculator_isMine": true,
+    "TechnicalName": "Consumable",
+    "PublicName": "Explosive Tripmine",
+    "Damage": 35.0,
+    "MinDamage": 10,
+    "StaggerDamageMulti": 1,
+    "PrecisionDamageMulti": 1,
+    "DamageFalloff": {
+      "x": 2.5,
+      "y": 12
+    },
+    "ShotgunBulletCount": 0,
+    "DefaultClipSize": 1,
+    "OptionType": "Gun"
+  }
+]

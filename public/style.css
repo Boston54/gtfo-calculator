@@ -122,7 +122,7 @@ label{
     color: var(--muted);
 }
 
-select{
+.dataSelect{
     width: 100%;
     padding: 10px 12px;
     border-radius: var(--radius-sm);
@@ -134,11 +134,41 @@ select{
     box-shadow: inset 0 0 0 1px rgba(0,0,0,0.35);
 }
 
-select:focus{
+.dataSelect:focus{
     border-color: var(--border-strong);
     box-shadow:
             0 0 0 3px rgba(125,255,225,0.12),
             inset 0 0 0 1px rgba(0,0,0,0.35);
+}
+
+.namespaceSelect{
+    width: 200px;
+    padding: 10px 12px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
+    background: rgba(7,9,12,0.6);
+    color: var(--text);
+    font-family: var(--mono);
+    outline: none;
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,0.35);
+}
+
+.dataSelect:focus{
+    border-color: var(--border-strong);
+    box-shadow:
+            0 0 0 3px rgba(125,255,225,0.12),
+            inset 0 0 0 1px rgba(0,0,0,0.35);
+}
+
+.namespaceContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    max-width: 1100px;
+    margin: 0 auto 12px;
+    padding: 0 16px;
 }
 
 .statsRows,
@@ -161,6 +191,77 @@ select:focus{
 
 .statsRow{
     grid-template-columns: 1.2fr 1fr;
+    position: relative;
+}
+
+.statsRow[data-tooltip]::after{
+    content: attr(data-tooltip);
+
+    position: absolute;
+    left: 12px;
+    bottom: calc(100% + 10px);
+
+    width: max-content;
+    max-width: 280px;
+
+    padding: 10px 12px;
+
+    border-radius: 10px;
+    border: 1px solid rgba(125,255,225,0.18);
+
+    background:
+            linear-gradient(180deg,
+            rgba(15,22,32,0.97),
+            rgba(10,15,22,0.97));
+
+    color: var(--text);
+
+    font-family: var(--sans);
+    font-size: 12px;
+    line-height: 1.45;
+
+    text-transform: none;
+    letter-spacing: normal;
+
+    box-shadow:
+            0 10px 24px rgba(0,0,0,0.45),
+            0 0 18px rgba(125,255,225,0.08);
+
+    backdrop-filter: blur(6px);
+
+    opacity: 0;
+    pointer-events: none;
+
+    transform: translateY(4px);
+    transition:
+            opacity 120ms ease,
+            transform 120ms ease;
+
+    z-index: 100;
+}
+
+.statsRow[data-tooltip]::before{
+    content: "";
+
+    position: absolute;
+
+    left: 20px;
+    bottom: calc(100% + 4px);
+
+    border: 6px solid transparent;
+    border-top-color: rgba(125,255,225,0.18);
+
+    opacity: 0;
+
+    transition: opacity 120ms ease;
+
+    z-index: 101;
+}
+
+.statsRow[data-tooltip]:hover::after,
+.statsRow[data-tooltip]:hover::before{
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .resultsRow{

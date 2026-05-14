@@ -1,14 +1,14 @@
 export class Gun {
-    constructor(slot, technicalName, name, damage, staggerMul, precMul, hasBackDamage, falloffStart, falloffEnd) {
-        this.slot = slot;
+    constructor(datablock, technicalName, name, damage, staggerMul, precMul, falloffStart, falloffEnd, pelletCount) {
+        this.datablock = datablock;
         this.technicalName = technicalName;
         this.name = name;
         this.damage = damage;
         this.staggerMul = staggerMul;
-        this.hasBackDamage = hasBackDamage;
         this.precMul = precMul;
         this.falloffStart = falloffStart;
         this.falloffEnd = falloffEnd;
+        this.pelletCount = pelletCount;
     }
 
     /**
@@ -18,19 +18,12 @@ export class Gun {
      * @returns {number} The scaled damage at this range.
      */
     getBaseDamageForDistance(distance) {
-        if (typeof this.falloffStart === "string") {
-            if (this.falloffStart === "explosive_tripmine") {
-                if (distance < 2.5) return this.damage;
-                if (distance >= 12) return 10;
-                let falloff = (distance - 2.5) / (12 - 2.5);
-                return this.damage + (10 - this.damage) * falloff;
-            } else if (this.falloffStart === "mine_deployer") {
-                if (distance < 3) return this.damage;
-                if (distance >= 15) return 15;
-                let falloff = (distance - 3) / (15 - 3);
-                return this.damage + (15 - this.damage) * falloff;
-            } else {
-                return "unknown data type " + this.falloffStart;
+        if (this.datablock.Calculator_isMine) {
+            if (this.datablock.Calculator_isMine) {
+                if (distance < this.falloffStart) return this.damage;
+                if (distance >= this.falloffEnd) return this.datablock.MinDamage;
+                let falloff = (distance - this.falloffStart) / (this.falloffEnd - this.falloffStart);
+                return this.damage + (this.datablock.MinDamage - this.damage) * falloff;
             }
         } else {
             if (this.falloffStart === null || this.falloffEnd === null) return this.damage;
@@ -61,7 +54,8 @@ export class Gun {
         const back = !isBack || enemyBackMul == null ? 1 : enemyBackMul;
         const stag = !isStaggerDamage ? 1 : this.staggerMul;
         const dist = this.getBaseDamageForDistance(distance);
-        return (dist * prec * back * stag * boosterDamageModifier).toFixed(2);
+        const pellets = this.pelletCount === 0 ? 1 : this.pelletCount;
+        return (dist * prec * back * stag * boosterDamageModifier * pellets).toFixed(2);
     }
 
     /**
@@ -86,7 +80,8 @@ export class Gun {
 }
 
 export class Melee {
-    constructor(name, lDamage, cDamage, lPrecMul, cPrecMul, lStaggerMul, cStaggerMul, lEnvMul, cEnvMul, lBackMul, cBackMul, lSleepMul, cSleepMul, lStamCost, cStamCost, shoveStamCost, chargeTime, autoAttackTime) {
+    constructor(datablock, name, lDamage, cDamage, lPrecMul, cPrecMul, lStaggerMul, cStaggerMul, lEnvMul, cEnvMul, lBackMul, cBackMul, lSleepMul, cSleepMul, lStamCost, cStamCost, shoveStamCost, chargeTime, autoAttackTime) {
+        this.datablock = datablock;
         this.name = name;
         this.lDamage = lDamage;
         this.cDamage = cDamage;
