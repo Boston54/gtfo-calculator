@@ -7,8 +7,6 @@
     "MinDamage": 15,
     "StaggerDamageMulti": 1,
     "PrecisionDamageMulti": 1,
-    "falloffStart": "mine_deployer",
-    "falloffEnd": "mine_deployer",
     "DamageFalloff": {
       "x": 3,
       "y": 15

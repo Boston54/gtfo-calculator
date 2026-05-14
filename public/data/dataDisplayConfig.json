@@ -144,7 +144,7 @@
         "condition": "notEqual",
         "value": 0
       },
-      "description": "The number of pellets fired from this weapon. Used for shotguns."
+      "description": "The number of pellets fired from this weapon. Used for shotguns.\nWhen damage calculations are performed against tumours, the tumour damage cap is simulated per-pellet, emulating client-side behaviour."
     }
   ],
   "sentry": [

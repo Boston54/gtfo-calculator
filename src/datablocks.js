@@ -173,7 +173,7 @@ function getEnemyName(internalName) {
     const name = enemyNameMappings.get(internalName);
     if (name === null) return null;
     if (typeof name === "string") return name;
-    return internalName;
+    return internalName.replaceAll("_", " ");
 }
 
 /**

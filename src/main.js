@@ -463,6 +463,7 @@ function updateResults() {
     let hasPrecisionPoints = activeEnemy.Calculator_HasPrecisionPoints ?? true;
     const hasArmor = activeEnemy.Calculator_HasArmor ?? activeEnemy.Health.ArmorDamageMulti !== 1
     const hasTumors = activeEnemy.Calculator_HasTumors ?? false;
+    const weaponPellets = activeWeapon.pelletCount === 0 ? 1 : activeWeapon.pelletCount;
 
     // If the active weapon is a Gun, then gun-related information needs to be displayed.
     if (activeWeapon instanceof Gun) {
@@ -482,8 +483,8 @@ function updateResults() {
         let occiputDamageDistStag = activeWeapon.getDamage(distance, enemyPrecisionMult, enemyBackMult, true, true, boosterMultiplier, true);
 
         // Account for tumour damage caps
-        const tumorCap = activeEnemy.Health.BodypartHealth + 1;
-        const tumorStaggerCap = tumorCap * activeWeapon.staggerMul;
+        const tumorCap = (activeEnemy.Health.BodypartHealth + 1) * weaponPellets;
+        const tumorStaggerCap = tumorCap * activeWeapon.staggerMul * weaponPellets;
         if (hasTumors) {
             headDamageDist = Math.min(headDamageDist, tumorCap);
             occiputDamageDist = Math.min(occiputDamageDist, tumorCap);
