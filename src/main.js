@@ -290,7 +290,7 @@ function createRowFromDatablock(rowsDiv, rowData, datablockEntry) {
 
         if (rowData.multiplyByPellets && datablockEntry.ShotgunBulletCount !== 0) {
             // handle the multiplyByPellets option
-            value = value + " (" + (getValueFromObject(datablockEntry, rowData.name).toFixed(2) * multiplier * datablockEntry.ShotgunBulletCount) + " total)";
+            value = value + " (" + (getValueFromObject(datablockEntry, rowData.name) * multiplier * datablockEntry.ShotgunBulletCount).toFixed(2) + " total)";
         }
     } else if (rowData.names) {
         // Get the raw values
