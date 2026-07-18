@@ -122,7 +122,7 @@ function tryGetLanguageMapping(mappings, uncheckedID, fallback = "Unknown") {
 
 const enemyNameMappings = new Map([
     ["Striker_Wave", "Striker"],
-    ["Striker_Berserk", null],
+    ["Striker_Berserk", "Nightmare Striker"],
     ["Striker_Patrol", null],
     ["Striker_Wave_Fast", null],
     ["Striker_Hibernate", null],
